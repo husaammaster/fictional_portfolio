@@ -13,7 +13,6 @@ export function createElement(
   }
   el.innerHTML = innerHTML;
   if (parent) parent.append(el);
-  else document.body.append(el);
 
   if (id) el.id = id;
 

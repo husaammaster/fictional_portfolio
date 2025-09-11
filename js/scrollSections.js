@@ -3,37 +3,49 @@
 import { createElement } from "./dom_utils.js";
 
 const elHeader = createElement("header", ["header"], "", document.body);
-const elMain = createElement("main", ["main"], "", document.body);
+export const elMain = createElement("main", ["main"], "", document.body);
 
 const elTitle = createElement(
   "h2",
-  ["title", "float-left"],
+  ["title", "float-right"],
   "husaammaster",
   elHeader
 );
 const elNavbar = createElement("nav", ["navbar", "buttons"], "", elHeader);
 
-export function scrollSectionWrapper(chapterName, chapterElement) {
+export function scrollSectionWrapper(
+  chapterName,
+  chapterElement,
+  chapterParent
+) {
+  const chapterID = chapterName.split(" ").join("") + "_Chapter";
+
   const elNavButton = createElement(
-    "span",
+    "button",
     ["navButton", "float-left"],
     chapterName,
-    elHeader,
+    elNavbar,
     chapterName.split(" ").join("") + "_Nav"
   );
 
-  const elNavChapter = createElement(
-    "div",
-    ["chapter"],
-    "",
-    elMain,
-    chapterName.split(" ").join("") + "_Chapter"
-  );
+  const elNavChapter = createElement("div", ["chapter"], "", elMain, chapterID);
+  elNavChapter.append(chapterElement);
 
   elNavButton.addEventListener("click", (evnt) => {
-    const chapterName = evnt.currentTarget.targetID;
+    const chapterName = evnt.currentTarget.id;
     console.log("clicked Nav element of chapterName: " + chapterName);
+    scrollTo(chapterID);
   });
+
+  if (chapterParent) chapterParent.append(elNavChapter);
+  else elMain.append(elNavChapter);
 }
 
-function scrollTo(targetID) {}
+function scrollTo(targetID) {
+  const headerOffset = 45;
+  const scrollTarget = document.querySelector("#" + targetID);
+  console.log(scrollTarget);
+  scrollTarget.scrollIntoView({
+    behavior: "smooth",
+  });
+}

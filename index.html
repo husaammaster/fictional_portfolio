@@ -4,10 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./css/layout.css" />
     <title>husaammaster</title>
     <style></style>
 
     <script type="module" src="/js/layout.js"></script>
   </head>
-  <body></body>
+  <body>
+    <script type="module">
+      import { init } from "./js/layout.js";
+      window.addEventListener("DOMContentLoaded", init); // run when DOM ready
+    </script>
+  </body>
 </html>
