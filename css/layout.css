@@ -10,6 +10,14 @@ h3 {
   margin: 0;
 }
 
+.flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .header {
   background-color: white;
   position: fixed;
@@ -60,4 +68,11 @@ h3 {
   background-color: rgb(217, 233, 243);
   border-radius: 15px;
   padding: 10px;
+}
+
+.badge {
+  color: white;
+  padding: 7px 15px;
+  border-radius: 20px;
+  margin: 7px;
 }

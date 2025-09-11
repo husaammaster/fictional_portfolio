@@ -16,10 +16,10 @@
       "chapterDescr": "lhd v lsis dgfob jgzkyudbgf hl",
       "type": "badges",
       "entries": [
-        { "name": "AI Research", "value": 40 },
-        { "name": "Game Dev", "value": 25 },
-        { "name": "Digital Art", "value": 15 },
-        { "name": "Community Projects", "value": 20 }
+        { "name": "AI Research" },
+        { "name": "Game Dev" },
+        { "name": "Digital Art" },
+        { "name": "Community Projects" }
       ]
     },
 

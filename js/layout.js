@@ -32,6 +32,7 @@ export function init() {
       );
 
       const elElements = generateChapContent(dataValue.type, dataValue.entries);
+      elDataDisplay.append(elElements);
 
       scrollSectionWrapper(dataName, elDataDisplay);
     }
@@ -43,13 +44,13 @@ function generateChapContent(contentType, elementsObject) {
   console.log("elementsObject", elementsObject, typeof elementsObject);
 
   if (contentType == "value-bars") {
-    generateValueBars(elementsObject);
+    return generateValueBars(elementsObject);
   } else if (contentType == "badges") {
-    generateBadges(elementsObject);
+    return generateBadges(elementsObject);
   } else if (contentType == "slider-grid") {
-    generateSliderGrid(elementsObject);
+    return generateSliderGrid(elementsObject);
   } else if (contentType == "logo-markdown-flex") {
-    generateLogoMarkdownFlex(elementsObject);
+    return generateLogoMarkdownFlex(elementsObject);
   }
 
   // for (let element of elementsObject) {
@@ -57,7 +58,32 @@ function generateChapContent(contentType, elementsObject) {
   // }
 }
 
-function generateValueBars(elementsObject) {}
-function generateBadges(elementsObject) {}
-function generateSliderGrid(elementsObject) {}
-function generateLogoMarkdownFlex(elementsObject) {}
+function generateValueBars(elementsObject) {
+  // for (let element of elementsObject) {
+  //   console.log("element", element);
+  // }
+}
+function generateBadges(elementsObject) {
+  const elBadgeDiv = createElement("div", ["flex", "flex-wrap"]);
+  for (let element of elementsObject) {
+    console.log("element", element);
+    const elBadge = createElement(
+      "span",
+      ["badge", "text"],
+      element.name,
+      elBadgeDiv
+    );
+    elBadge.style.backgroundColor = "#a0a";
+  }
+  return elBadgeDiv;
+}
+function generateSliderGrid(elementsObject) {
+  // for (let element of elementsObject) {
+  //   console.log("element", element);
+  // }
+}
+function generateLogoMarkdownFlex(elementsObject) {
+  // for (let element of elementsObject) {
+  //   console.log("element", element);
+  // }
+}
