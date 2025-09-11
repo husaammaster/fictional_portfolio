@@ -1,6 +1,6 @@
 "use strict ";
 
-function loadJSON(path, processFunction) {
+export function loadJSON(path, processFunction) {
   const xhr = new XMLHttpRequest();
   xhr.open("get", path);
   xhr.addEventListener("load", (evnt) => {
@@ -14,4 +14,5 @@ function loadJSON(path, processFunction) {
       );
     }
   });
+  xhr.send();
 }
