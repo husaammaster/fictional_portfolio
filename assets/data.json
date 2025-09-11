@@ -1,0 +1,81 @@
+{
+  "data": {
+    "skillsData": [
+      { "name": "Python", "value": 90 },
+      { "name": "C++", "value": 80 },
+      { "name": "Computer Vision", "value": 85 },
+      { "name": "Machine Learning", "value": 78 },
+      { "name": "Web Dev", "value": 60 }
+    ],
+
+    "interestData": [
+      { "name": "AI Research", "value": 40 },
+      { "name": "Game Dev", "value": 25 },
+      { "name": "Digital Art", "value": 15 },
+      { "name": "Community Projects", "value": 20 }
+    ],
+
+    "projectData": [
+      { "name": "AI Research", "githubLink": 40, "mediaURLs": [] },
+      { "name": "Game Dev", "githubLink": 25, "mediaURLs": [] },
+      { "name": "Digital Art", "githubLink": 15, "mediaURLs": [] },
+      { "name": "Community Projects", "githubLink": 20, "mediaURLs": [] }
+    ],
+
+    "certificateData": [
+      {
+        "name": "AI Research",
+        "durationMonths": 3,
+        "descriptionMarkdown": "lfhs d ulroifgc, hdb poi "
+      },
+      {
+        "name": "AI Research",
+        "durationMonths": 3,
+        "descriptionMarkdown": "lfhs d ulroifgc, hdb poi "
+      },
+      {
+        "name": "AI Research",
+        "durationMonths": 3,
+        "descriptionMarkdown": "lfhs d ulroifgc, hdb poi "
+      },
+      {
+        "name": "AI Research",
+        "durationMonths": 3,
+        "descriptionMarkdown": "lfhs d ulroifgc, hdb poi "
+      }
+    ],
+
+    "jobData": [
+      {
+        "name": "Python",
+        "descriptionMarkdown": "lfhs d ulroifgc, hdb poi ",
+        "company": "Grobie Inc",
+        "durationMonths": 3
+      },
+      {
+        "name": "Python",
+        "descriptionMarkdown": "lfhs d ulroifgc, hdb poi ",
+        "company": "Grobie Inc",
+        "durationMonths": 3
+      },
+      {
+        "name": "Python",
+        "descriptionMarkdown": "lfhs d ulroifgc, hdb poi ",
+        "company": "Grobie Inc",
+        "durationMonths": 3
+      },
+      {
+        "name": "Python",
+        "descriptionMarkdown": "lfhs d ulroifgc, hdb poi ",
+        "company": "Grobie Inc",
+        "durationMonths": 3
+      },
+      {
+        "name": "Python",
+        "descriptionMarkdown": "lfhs d ulroifgc, hdb poi ",
+        "company": "Grobie Inc",
+        "durationMonths": 3
+      }
+    ]
+  }
+}

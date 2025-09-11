@@ -1,0 +1,206 @@
+import React from "react";
+import {
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  PieChart,
+  Pie,
+  Cell,
+  Legend,
+} from "recharts";
+
+// Single-file React component for a personal portfolio single-page
+// Uses Tailwind CSS for styling and Recharts for simple charts.
+// To preview: drop this component into a React app that has Tailwind and recharts installed.
+// Example: npm install recharts && Tailwind configured
+
+const skillsData = [
+  { name: "Python", value: 90 },
+  { name: "C++", value: 80 },
+  { name: "Computer Vision", value: 85 },
+  { name: "Machine Learning", value: 78 },
+  { name: "Web Dev", value: 60 },
+];
+
+const interestData = [
+  { name: "AI Research", value: 40 },
+  { name: "Game Dev", value: 25 },
+  { name: "Digital Art", value: 15 },
+  { name: "Community Projects", value: 20 },
+];
+
+const COLORS = ["#4F46E5", "#06B6D4", "#10B981", "#F59E0B", "#EF4444"];
+
+export default function PortfolioPage() {
+  return (
+    <div className="min-h-screen bg-gray-50 text-gray-900">
+      <header className="bg-white shadow-sm">
+        <div className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
+          <div>
+            <h1 className="text-2xl font-extrabold">Your Name</h1>
+            <p className="text-sm text-gray-500">Vision Programmer · ML Engineer · Open to collaborations</p>
+          </div>
+          <nav className="space-x-4 text-sm">
+            <a href="#about" className="hover:underline">About</a>
+            <a href="#cv" className="hover:underline">CV</a>
+            <a href="#skills" className="hover:underline">Skills</a>
+            <a href="#interests" className="hover:underline">Interests</a>
+            <a href="#refs" className="hover:underline">References</a>
+          </nav>
+        </div>
+      </header>
+
+      <main className="max-w-6xl mx-auto px-6 py-10">
+        {/* Hero / Intro */}
+        <section id="about" className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start mb-12">
+          <div className="md:col-span-2 bg-white p-6 rounded-2xl shadow">
+            <h2 className="text-xl font-bold mb-2">Kurzvorstellung</h2>
+            <p className="text-gray-700 leading-relaxed">
+              Ich bin ein leidenschaftlicher Vision-Programmierer mit Fokus auf Computer Vision,
+              maschinellem Lernen und sauberen, wartbaren Systemen. Ich baue Prototypen, die
+              reale Probleme lösen und bin daran interessiert, Projekte zu starten, die
+              Gemeinschaften helfen.
+            </p>
+
+            <div id="cv" className="mt-6">
+              <h3 className="font-semibold">Lebenslauf (Kurz)</h3>
+              <ul className="mt-3 space-y-2 text-sm text-gray-700">
+                <li>
+                  <span className="font-medium">Master in Informatik</span> — RWTH Aachen, Thesis: Deep
+                  Learning für Bildverarbeitung
+                </li>
+                <li>
+                  <span className="font-medium">Berufserfahrung</span> — Arbeit an CV-Projekten in der
+                  Industrie, Forschung und Open-Source
+                </li>
+                <li>
+                  <span className="font-medium">Tools</span> — Python, C++, TensorFlow/PyTorch, OpenCV
+                </li>
+              </ul>
+              <div className="mt-4">
+                <a
+                  href="#"
+                  className="inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg shadow hover:bg-indigo-700 text-sm"
+                >
+                  Lebenslauf herunterladen
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <aside className="bg-gradient-to-br from-white to-gray-100 p-6 rounded-2xl shadow text-sm">
+            <h3 className="font-semibold mb-2">Kontakt</h3>
+            <p className="text-gray-700">E-Mail: you@example.com</p>
+            <p className="text-gray-700">Ort: Köln, Deutschland</p>
+
+            <div className="mt-4">
+              <h4 className="font-semibold mb-1">Kurz-Highlights</h4>
+              <ul className="text-gray-700 list-disc ml-4">
+                <li>Publikationen & Talks</li>
+                <li>Open-source Contributions</li>
+                <li>Projekte im Bildungsbereich</li>
+              </ul>
+            </div>
+          </aside>
+        </section>
+
+        {/* Skills & Charts */}
+        <section id="skills" className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <div className="bg-white p-6 rounded-2xl shadow">
+            <h3 className="text-lg font-bold mb-4">Fertigkeiten (Balkendiagramm)</h3>
+            <div style={{ height: 260 }}>
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={skillsData} margin={{ top: 10, right: 20, left: -10, bottom: 5 }}>
+                  <XAxis dataKey="name" />
+                  <YAxis domain={[0, 100]} />
+                  <Tooltip />
+                  <Bar dataKey="value" radius={[6, 6, 0, 0]}>
+                    {skillsData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                    ))}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+
+          <div className="bg-white p-6 rounded-2xl shadow">
+            <h3 className="text-lg font-bold mb-4">Interessen (Tortendiagramm)</h3>
+            <div style={{ height: 260 }}>
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie
+                    data={interestData}
+                    dataKey="value"
+                    nameKey="name"
+                    cx="50%"
+                    cy="50%"
+                    outerRadius={80}
+                    innerRadius={30}
+                    label
+                  >
+                    {interestData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                    ))}
+                  </Pie>
+                  <Legend verticalAlign="bottom" height={36} />
+                  <Tooltip />
+                </PieChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+        </section>
+
+        {/* More skill visualizations and CSV-like table */}
+        <section className="bg-white p-6 rounded-2xl shadow mb-12">
+          <h3 className="text-lg font-bold mb-4">Weitere Visualisierungen & Details</h3>
+          <p className="text-gray-700 text-sm mb-4">
+            Hier könnten weitere Diagrammtypen (Radar, Line) oder interaktive Filter eingebaut werden,
+            um die Skills nach Jahren, Projekten oder Relevanz zu filtern.
+          </p>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm table-auto">
+              <thead className="text-left text-gray-500">
+                <tr>
+                  <th className="px-3 py-2">Skill</th>
+                  <th className="px-3 py-2">Niveau</th>
+                  <th className="px-3 py-2">Verwendet in</th>
+                </tr>
+              </thead>
+              <tbody>
+                {skillsData.map((s) => (
+                  <tr key={s.name} className="border-t">
+                    <td className="px-3 py-2">{s.name}</td>
+                    <td className="px-3 py-2">{s.value}%</td>
+                    <td className="px-3 py-2">Prototypen, Forschung, Produktion</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        {/* References */}
+        <section id="refs" className="bg-white p-6 rounded-2xl shadow mb-12">
+          <h3 className="text-lg font-bold mb-4">Referenzen</h3>
+          <div className="space-y-4">
+            <div>
+              <p className="font-medium">Prof. Dr. Beispiel — Universität XY</p>
+              <p className="text-sm text-gray-700">Betreuer, Thesis & gemeinsame Publikation</p>
+            </div>
+            <div>
+              <p className="font-medium">Frau Beispiel — Firma Z</p>
+              <p className="text-sm text-gray-700">Produktmanagerin, Kollaboration an CV-Projekt</p>
+            </div>
+          </div>
+        </section>
+
+        <footer className="text-center text-sm text-gray-500 py-6">© {new Date().getFullYear()} Your Name — Built with ❤️</footer>
+      </main>
+    </div>
+  );
+}
