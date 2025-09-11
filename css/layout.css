@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 body,
@@ -53,4 +54,10 @@ h3 {
   padding: 20px;
   border: 1px lightgray dotted;
   border-radius: 25px;
+}
+
+.chapterDescr {
+  background-color: rgb(217, 233, 243);
+  border-radius: 15px;
+  padding: 10px;
 }

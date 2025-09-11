@@ -18,14 +18,14 @@ export function scrollSectionWrapper(
   chapterElement,
   chapterParent
 ) {
-  const chapterID = chapterName.split(" ").join("") + "_Chapter";
+  const chapterID = chapterName.split(" ").join("").toLowerCase() + "_Chapter";
 
   const elNavButton = createElement(
     "button",
     ["navButton", "float-left"],
     chapterName,
     elNavbar,
-    chapterName.split(" ").join("") + "_Nav"
+    chapterName.split(" ").join("").toLowerCase() + "_Nav"
   );
 
   const elNavChapter = createElement("div", ["chapter"], "", elMain, chapterID);
