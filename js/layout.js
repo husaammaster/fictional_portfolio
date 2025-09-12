@@ -58,10 +58,14 @@ function generateChapContent(contentType, elementsObject) {
 
 function generateValueBars(elementsObject) {
   console.log(" - generateValueBars");
-  const elGraphDiv = createElement("div", ["flex", "flex-wrap"], "");
+  const elGraphDiv = createElement(
+    "div",
+    ["flex", "scrollX", "flex-start"],
+    ""
+  );
   const elGraphCount = createElement(
     "div",
-    ["flex", "flex-dir-up"],
+    ["flex", "flex-dir-up", "flex-space-between"],
     "",
     elGraphDiv
   );
@@ -73,6 +77,8 @@ function generateValueBars(elementsObject) {
   );
   elGraphCount.style.maxWidth = "10%";
   elGraphCount.style.minHeight = "300px";
+  elGraphBorder.style.minWidth = 65 * elementsObject.length + "px";
+
   elGraphBorder.style.maxWidth = "90%";
   elGraphBorder.style.minHeight = "300px";
 

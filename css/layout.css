@@ -12,6 +12,14 @@ h3 {
 
 .flex {
   display: flex;
+  gap: 10px;
+}
+
+.flex-space-between {
+  justify-content: space-between;
+}
+.flex-start {
+  justify-content: start;
 }
 
 .flex-wrap {
@@ -32,6 +40,10 @@ h3 {
 
 .whiteText {
   color: white;
+}
+
+.scrollX {
+  overflow-x: auto;
 }
 
 .header {
@@ -85,7 +97,7 @@ h3 {
   border-radius: 25px;
   max-width: 650px;
   min-height: 350px;
-  min-width: 350px;
+  min-width: 450px;
 }
 
 .chapterDescr {
@@ -101,17 +113,15 @@ h3 {
 }
 
 .column {
-  padding: 7px 15px;
+  padding: 15px 15px;
   border-radius: 10px;
-  margin: 7px;
-  width: 15%;
   overflow: visible;
+  min-width: 60px;
   filter: saturate(70%);
   transition: all 0.3s;
 }
 
 .column:hover {
-  width: 20%;
   filter: saturate(100%);
 }
 
@@ -129,6 +139,8 @@ h3 {
 .rot90CW {
   display: inline-block; /* needed so transform affects element box */
   transform-origin: left top; /* anchor pivot at top-left */
-  width: 150px;
+  width: 1px;
+  white-space: nowrap;
+  overflow: visible;
   transform: rotate(90deg) translateY(-100%); /* rotate 90° clockwise */
 }
