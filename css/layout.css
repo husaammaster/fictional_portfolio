@@ -47,17 +47,7 @@ h3 {
     "Lucida Sans", Arial, sans-serif;
   border-bottom: 1px dotted lightgray;
   box-shadow: 0 -12px 25px 1px #d3d3d3;
-}
-
-.main {
-  width: 85%;
-  margin: 0 auto;
-  margin-top: 100px;
-  color: #444;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
+  z-index: 1;
 }
 
 .navbar {
@@ -77,13 +67,25 @@ h3 {
   margin: 2px;
 }
 
+.main {
+  width: 85%;
+  margin: 100px auto;
+  color: #444;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
 .chapter {
   scroll-margin-top: 100px;
   box-shadow: 0 0 20px 1px #eee;
   padding: 20px;
   border: 1px lightgray dotted;
   border-radius: 25px;
-  max-width: 550px;
+  max-width: 650px;
+  min-height: 350px;
+  min-width: 350px;
 }
 
 .chapterDescr {
@@ -102,9 +104,26 @@ h3 {
   padding: 7px 15px;
   border-radius: 10px;
   margin: 7px;
-  max-width: 15%;
-  min-width: 15%;
+  width: 15%;
   overflow: visible;
+  filter: saturate(70%);
+  transition: all 0.3s;
+}
+
+.column:hover {
+  width: 20%;
+  filter: saturate(100%);
+}
+
+.column-proj {
+  display: block;
+  line-height: 0em;
+  filter: opacity(0%);
+  transition: all 0.3s;
+}
+.column:hover .column-proj {
+  line-height: 1em;
+  filter: opacity(100%);
 }
 
 .rot90CW {

@@ -7,8 +7,6 @@ Erstelle eine Webseite mit einem persönlichen Portfolio als Single-Pager mit ei
 ### Optionen To-Do:
 
 - (Eigen) Je nach "typ" in der JSON die einzelnen chapter-elemente rendern
-- (Eigen) Hover saturation für Farbbalken
-- Das Diagramm ist animiert
 - Die Daten werden per Ajax aus einer JSON-Datei geladen
 - Das Foto wechselt als Slideshow
 - Die Seite hat ein Kontaktformular mit eigener Validierung
@@ -16,10 +14,12 @@ Erstelle eine Webseite mit einem persönlichen Portfolio als Single-Pager mit ei
 - Bei Betätigung des Scrollrades werden die Themen direkt angesprungen. Beachte auch die Aktualisierung des Menüs.
 - Wenn sich die Maus dem Menü nähert (schon bevor das Menü berührt wird), wird dieses vergrößert.
 - In unregelmäßigen Abständen macht der Kontakt-Button auf sich aufmerksam.
-- (Eigen) Chapter container zu fixed breite machen und den main zu eine flex mit flexwrap machen
 
 ### Optionen Fertig:
 
+- Das Diagramm ist animiert
+- (Eigen) Hover saturation für Farbbalken
+- (Eigen) Chapter container zu fixed breite machen und den main zu eine flex mit flexwrap machen
 - Das Anspringen funktioniert in allen Browsern smooth
 - (Eigen) Fixed top header
 

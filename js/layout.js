@@ -111,10 +111,16 @@ function generateValueBars(elementsObject) {
     elColumn.style.height = (100 * element.value) / maxVal + "%";
     const colLabel = element.name + ":  " + element.value.toFixed();
     const elColLabel = createElement(
-      "span",
+      "div",
       ["text", "rot90CW"],
       colLabel,
       elColumn
+    );
+    const elColDesc = createElement(
+      "span",
+      ["column-proj"],
+      element.proj,
+      elColLabel
     );
     elColumn.style.backgroundColor = randCOLORS[ind];
   }
