@@ -1,19 +1,39 @@
 {
   "data": {
-    "SkillsData": {
-      "chapterDescr": "lhd v lsis dgfob jgzkyudbgf hl",
+    "Best SkillsData": {
+      "chapterDescr": "Core programming and AI skills used in research and production web services.",
       "type": "value-bars",
       "entries": [
-        { "name": "Python", "value": 90, "proj": "srv g bs" },
-        { "name": "C++", "value": 80, "proj": "srv g bs" },
-        { "name": "Computer Vision", "value": 85, "proj": "srv g bs" },
-        { "name": "Machine Learning", "value": 78, "proj": "srv g bs" },
-        { "name": "Web Dev", "value": 60, "proj": "srv g bs" }
+        {
+          "name": "Python",
+          "value": 90,
+          "proj": "at University"
+        },
+        {
+          "name": "C++",
+          "value": 80,
+          "proj": "at University"
+        },
+        {
+          "name": "Computer Vision",
+          "value": 85,
+          "proj": "at University, Robosence."
+        },
+        {
+          "name": "Machine Learning",
+          "value": 78,
+          "proj": "at Robosence"
+        },
+        {
+          "name": "Web Dev",
+          "value": 60,
+          "proj": "at alfatrining"
+        }
       ]
     },
 
-    "InterestsData": {
-      "chapterDescr": "lhd v lsis dgfob jgzkyudbgf hl",
+    "Personal InterestsData": {
+      "chapterDescr": "Areas I explore outside coursework and internships to build skills and side projects.",
       "type": "badges",
       "entries": [
         { "name": "AI Research" },
@@ -23,81 +43,110 @@
       ]
     },
 
-    "ProjectsData": {
-      "chapterDescr": "lhd v lsis dgfob jgzkyudbgf hl",
+    "Previous ProjectsData": {
+      "chapterDescr": "Selected projects demonstrating AI, CV, web development and community contributions.",
       "type": "slider-grid",
       "entries": [
-        { "name": "AI Research", "githubLink": 40, "mediaURLs": [] },
-        { "name": "Game Dev", "githubLink": 25, "mediaURLs": [] },
-        { "name": "Digital Art", "githubLink": 15, "mediaURLs": [] },
-        { "name": "Community Projects", "githubLink": 20, "mediaURLs": [] }
+        {
+          "name": "AI Research",
+          "githubLink": 40,
+          "mediaURLs": ["./imgs/ai_research_1.png", "./imgs/ai_research_2.png"],
+          "shortDescr": "Published-style experiments on few-shot learning and model interpretability."
+        },
+        {
+          "name": "Game Dev",
+          "githubLink": 25,
+          "mediaURLs": ["./imgs/game_dev_1.png"],
+          "shortDescr": "Indie prototypes using Unity and custom AI-driven NPC behaviors."
+        },
+        {
+          "name": "Digital Art",
+          "githubLink": 15,
+          "mediaURLs": ["./imgs/digital_art_1.png"],
+          "shortDescr": "Generative visual pieces created with neural style transfer and shaders."
+        },
+        {
+          "name": "Community Projects",
+          "githubLink": 20,
+          "mediaURLs": ["./imgs/community_1.png"],
+          "shortDescr": "Open-source tools and workshops for students and local meetups."
+        }
       ]
     },
 
-    "CertificatesData": {
-      "chapterDescr": "lhd v lsis dgfob jgzkyudbgf hl",
+    "ext. Certificates and UniversityData": {
+      "chapterDescr": "Short courses and certifications that support my AI and web development work.",
       "type": "logo-markdown-flex",
       "entries": [
         {
-          "name": "AI Research",
+          "name": "Deep Learning Specialization",
           "durationMonths": 3,
-          "descriptionMarkdown": "lfhs d ulroifgc, hdb poi ",
-          "company": "Grobie Inc"
+          "descriptionMarkdown": "### Deep Learning Specialization\n\nCompleted practical assignments on neural networks, CNNs, and sequence models. Learned deployment basics and best practices for model evaluation.",
+          "company": "Coursera",
+          "logoImg": "./imgs/logo_coursera.jpg"
         },
         {
-          "name": "AI Research",
-          "durationMonths": 3,
-          "descriptionMarkdown": "lfhs d ulroifgc, hdb poi ",
-          "company": "Grobie Inc"
+          "name": "Computer Vision with PyTorch",
+          "durationMonths": 2,
+          "descriptionMarkdown": "### Computer Vision with PyTorch\n\nHands-on projects for object detection and segmentation using PyTorch. Focused on dataset handling, augmentation, and training pipelines.",
+          "company": "Fast.ai",
+          "logoImg": "./imgs/logo_fastai.jpg"
         },
         {
-          "name": "AI Research",
-          "durationMonths": 3,
-          "descriptionMarkdown": "lfhs d ulroifgc, hdb poi ",
-          "company": "Grobie Inc"
+          "name": "Full‑Stack Web Dev",
+          "durationMonths": 4,
+          "descriptionMarkdown": "### Full‑Stack Web Development\n\nBuilt multiple full‑stack apps using React, Node.js, and RESTful APIs. Covered deployment, authentication, and CI/CD basics.",
+          "company": "Udacity",
+          "logoImg": "./imgs/logo_udacity.jpg"
         },
         {
-          "name": "AI Research",
+          "name": "Applied ML Engineering",
           "durationMonths": 3,
-          "descriptionMarkdown": "lfhs d ulroifgc, hdb poi ",
-          "company": "Grobie Inc"
+          "descriptionMarkdown": "### Applied ML Engineering\n\nFocused on productionizing models, monitoring, and scalable inference. Included containerization and cloud deployment exercises.",
+          "company": "DataCamp",
+          "logoImg": "./imgs/logo_datacamp.jpg"
         }
       ]
     },
 
     "Job ExperienceData": {
-      "chapterDescr": "lhd v lsis dgfob jgzkyudbgf hl",
+      "chapterDescr": "Internships and part‑time roles where I applied engineering and research skills.",
       "type": "logo-markdown-flex",
       "entries": [
         {
-          "name": "Python",
-          "descriptionMarkdown": "lfhs d ulroifgc, hdb poi ",
-          "company": "Grobie Inc",
-          "durationMonths": 3
+          "name": "ML Research Intern",
+          "descriptionMarkdown": "### ML Research Intern\n\nWorked on model optimization for edge devices and wrote reproducible experiments. Contributed to a paper draft and internal tooling for training jobs.",
+          "company": "VisionWorks Lab",
+          "durationMonths": 6,
+          "logoImg": "./imgs/logo_visionworks.jpg"
         },
         {
-          "name": "Python",
-          "descriptionMarkdown": "lfhs d ulroifgc, hdb poi ",
-          "company": "Grobie Inc",
-          "durationMonths": 3
+          "name": "Software Engineering Intern",
+          "descriptionMarkdown": "### Software Engineering Intern\n\nImplemented backend services and REST APIs for analytics dashboards. Improved CI pipelines and reduced deployment time.",
+          "company": "CloudScale Inc",
+          "durationMonths": 4,
+          "logoImg": "./imgs/logo_cloudscale.jpg"
         },
         {
-          "name": "Python",
-          "descriptionMarkdown": "lfhs d ulroifgc, hdb poi ",
-          "company": "Grobie Inc",
-          "durationMonths": 3
+          "name": "Computer Vision Intern",
+          "descriptionMarkdown": "### Computer Vision Intern\n\nDeveloped object detection models and dataset annotation tools. Integrated models into a real‑time prototype with latency testing.",
+          "company": "RoboSense",
+          "durationMonths": 3,
+          "logoImg": "./imgs/logo_robosense.jpg"
         },
         {
-          "name": "Python",
-          "descriptionMarkdown": "lfhs d ulroifgc, hdb poi ",
-          "company": "Grobie Inc",
-          "durationMonths": 3
+          "name": "Web Developer (Part‑time)",
+          "descriptionMarkdown": "### Web Developer (Part‑time)\n\nBuilt frontend features and improved UX for a student platform using React. Added accessibility improvements and optimized bundle size.",
+          "company": "CampusApps",
+          "durationMonths": 8,
+          "logoImg": "./imgs/logo_campusapps.jpg"
         },
         {
-          "name": "Python",
-          "descriptionMarkdown": "lfhs d ulroifgc, hdb poi ",
-          "company": "Grobie Inc",
-          "durationMonths": 3
+          "name": "Open Source Contributor",
+          "descriptionMarkdown": "### Open Source Contributor\n\nMaintained and contributed to ML tooling libraries with bug fixes and feature PRs. Reviewed issues and helped onboard new contributors.",
+          "company": "Various Projects",
+          "durationMonths": 12,
+          "logoImg": "./imgs/logo_open_source.jpg"
         }
       ]
     }

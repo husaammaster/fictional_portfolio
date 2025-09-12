@@ -8,7 +8,7 @@ export const elMain = createElement("main", ["main"], "", document.body);
 const elTitle = createElement(
   "h2",
   ["title", "float-right"],
-  "husaammaster",
+  "husaammaster (fictional portfolio)",
   elHeader
 );
 const elNavbar = createElement("nav", ["navbar", "buttons"], "", elHeader);

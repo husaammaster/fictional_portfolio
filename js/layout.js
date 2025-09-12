@@ -132,6 +132,7 @@ function generateValueBars(elementsObject) {
   }
   return elGraphDiv;
 }
+
 function generateBadges(elementsObject) {
   const elBadgeDiv = createElement("div", ["flex", "flex-wrap"]);
   const randCOLORS = shuffle(COLORS);
@@ -148,13 +149,56 @@ function generateBadges(elementsObject) {
   }
   return elBadgeDiv;
 }
+
 function generateSliderGrid(elementsObject) {
   // for (let element of elementsObject) {
   //   console.log("element", element);
   // }
 }
+
 function generateLogoMarkdownFlex(elementsObject) {
-  // for (let element of elementsObject) {
-  //   console.log("element", element);
-  // }
+  const elMarkDivContainer = createElement("div", ["markDivContainer"]);
+
+  for (let [ind, element] of Object.entries(elementsObject)) {
+    const markTitle =
+      element.name +
+      " at " +
+      element.company +
+      ` (${element.durationMonths} months)`;
+    const elMarkTitle = createElement(
+      "h3",
+      ["text"],
+      markTitle,
+      elMarkDivContainer
+    );
+    elMarkTitle.style.marginTop = "50px";
+    const elMarkDiv = createElement(
+      "div",
+      ["markDiv", "flex", "flex-wrap"],
+      "",
+      elMarkDivContainer
+    );
+    elMarkDiv.style.marginBottom = "20px";
+    elMarkDiv.style.marginTop = "10px";
+    const elLogoCont = createElement(
+      "div",
+      ["flex", "flex-center-center"],
+      "",
+      elMarkDiv
+    );
+    elLogoCont.style.width = "19%";
+    const elLogo = createElement("img", ["logo"], "", elLogoCont);
+    elLogo.src = element.logoImg;
+    elLogo.alt = element.company + " Logo";
+
+    const elMarkdown = createElement(
+      "div",
+      ["text", "markdown"],
+      marked.parse(element.descriptionMarkdown),
+      elMarkDiv
+    );
+    elMarkdown.style.width = "75%";
+    elMarkdown.style.padding = "10px";
+  }
+  return elMarkDivContainer;
 }
