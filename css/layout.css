@@ -73,22 +73,22 @@ h3 {
   padding: 10px;
 }
 
-.button {
-  border-radius: 5px;
-}
 .title {
   word-spacing: 5px;
 }
-
 .navButton {
-  padding: 8px;
-  border: 1px solid lightgray;
-  margin: 2px;
+  padding: 7px 15px;
+  border-radius: 20px;
+  margin: 6px;
+  border: 1px dotted #f0f0f0;
+  background-color: #f7f7f7;
+  box-shadow: 0 0 20px 1px #f7f7f7;
+  cursor: pointer;
 }
 
 .main {
   width: 85%;
-  margin: 100px auto;
+  margin: 150px auto;
   color: #444;
   display: flex;
   flex-wrap: wrap;
@@ -97,7 +97,7 @@ h3 {
 }
 
 .chapter {
-  scroll-margin-top: 100px;
+  scroll-margin-top: 150px;
   box-shadow: 0 0 20px 1px #eee;
   padding: 20px;
   border: 1px lightgray dotted;
@@ -150,6 +150,10 @@ h3 {
   white-space: nowrap;
   overflow: visible;
   transform: rotate(90deg) translateY(-100%); /* rotate 90° clockwise */
+}
+
+.markTriplet {
+  padding: 5px;
 }
 
 .logo {

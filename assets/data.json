@@ -7,27 +7,27 @@
         {
           "name": "Python",
           "value": 90,
-          "proj": "at University"
+          "proj": "University & ML projects at Robosence."
         },
         {
           "name": "C++",
           "value": 80,
-          "proj": "at University"
+          "proj": "Univerity: systems courses."
         },
         {
           "name": "Computer Vision",
           "value": 85,
-          "proj": "at University, Robosence."
+          "proj": "RoboSense & Master's thesis."
         },
         {
           "name": "Machine Learning",
           "value": 78,
-          "proj": "at Robosence"
+          "proj": "Lab internships & Univerity."
         },
         {
           "name": "Web Dev",
           "value": 60,
-          "proj": "at alfatrining"
+          "proj": "Built student-facing apps."
         }
       ]
     },
@@ -74,10 +74,24 @@
       ]
     },
 
-    "ext. Certificates and UniversityData": {
+    "ext Certificates and UniversityData": {
       "chapterDescr": "Short courses and certifications that support my AI and web development work.",
       "type": "logo-markdown-flex",
       "entries": [
+        {
+          "name": "B.Sc. Computer Science",
+          "durationMonths": 36,
+          "descriptionMarkdown": "### Bachelor of Science in Computer Science\n\nFocused on algorithms, data structures, and software engineering. Completed capstone integrating CV modules with a web frontend.",
+          "company": "State University",
+          "logoImg": "./imgs/logo_university_bs.jpg"
+        },
+        {
+          "name": "M.Sc. Computer Science",
+          "durationMonths": 24,
+          "descriptionMarkdown": "### Master of Science in Computer Science\n\nSpecialized in machine learning and computer vision with a thesis on real-time detection. Coursework and research strengthened PyTorch and deployment skills.",
+          "company": "Tech Institute",
+          "logoImg": "./imgs/logo_university_ms.jpg"
+        },
         {
           "name": "Deep Learning Specialization",
           "durationMonths": 3,
@@ -86,25 +100,11 @@
           "logoImg": "./imgs/logo_coursera.jpg"
         },
         {
-          "name": "Computer Vision with PyTorch",
-          "durationMonths": 2,
-          "descriptionMarkdown": "### Computer Vision with PyTorch\n\nHands-on projects for object detection and segmentation using PyTorch. Focused on dataset handling, augmentation, and training pipelines.",
-          "company": "Fast.ai",
-          "logoImg": "./imgs/logo_fastai.jpg"
-        },
-        {
           "name": "Full‑Stack Web Dev",
           "durationMonths": 4,
           "descriptionMarkdown": "### Full‑Stack Web Development\n\nBuilt multiple full‑stack apps using React, Node.js, and RESTful APIs. Covered deployment, authentication, and CI/CD basics.",
-          "company": "Udacity",
-          "logoImg": "./imgs/logo_udacity.jpg"
-        },
-        {
-          "name": "Applied ML Engineering",
-          "durationMonths": 3,
-          "descriptionMarkdown": "### Applied ML Engineering\n\nFocused on productionizing models, monitoring, and scalable inference. Included containerization and cloud deployment exercises.",
-          "company": "DataCamp",
-          "logoImg": "./imgs/logo_datacamp.jpg"
+          "company": "alfatraining Aachen",
+          "logoImg": "./imgs/logo_alfatraining.jpg"
         }
       ]
     },

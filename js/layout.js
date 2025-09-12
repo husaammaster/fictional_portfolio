@@ -160,23 +160,24 @@ function generateLogoMarkdownFlex(elementsObject) {
   const elMarkDivContainer = createElement("div", ["markDivContainer"]);
 
   for (let [ind, element] of Object.entries(elementsObject)) {
+    const elMarkTriplet = createElement(
+      "div",
+      ["markTriplet"],
+      "",
+      elMarkDivContainer
+    );
     const markTitle =
       element.name +
       " at " +
       element.company +
       ` (${element.durationMonths} months)`;
-    const elMarkTitle = createElement(
-      "h3",
-      ["text"],
-      markTitle,
-      elMarkDivContainer
-    );
-    elMarkTitle.style.marginTop = "50px";
+    const elMarkTitle = createElement("h3", ["text"], markTitle, elMarkTriplet);
+    elMarkTriplet.style.marginTop = "15px";
     const elMarkDiv = createElement(
       "div",
       ["markDiv", "flex", "flex-wrap"],
       "",
-      elMarkDivContainer
+      elMarkTriplet
     );
     elMarkDiv.style.marginBottom = "20px";
     elMarkDiv.style.marginTop = "10px";
