@@ -12,6 +12,9 @@ Erstelle eine Webseite mit einem persönlichen Portfolio als Single-Pager mit ei
 - Die Seite hat ein Kontaktformular mit eigener Validierung
 - Wenn sich die Maus dem Menü nähert (schon bevor das Menü berührt wird), wird dieses vergrößert.
 - In unregelmäßigen Abständen macht der Kontakt-Button auf sich aufmerksam.
+- Bunte animation an der Tabelle, oder zb dass man das per knopfdruck sortieren kann
+- Rechter Mausklick unterdrücken und stattdessen die LKapitelübersicht mit Position fixed machen
+-
 
 ### Optionen Fertig:
 

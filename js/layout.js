@@ -154,9 +154,136 @@ function generateBadges(elementsObject) {
 }
 
 function generateSliderGrid(elementsObject) {
-  // for (let element of elementsObject) {
-  //   console.log("element", element);
-  // }
+  console.log("Generating slider Grid");
+
+  const elSliderFlexGrid = createElement("div", [
+    "felx",
+    "flex-wrap",
+    "flex-start",
+  ]);
+  for (let element of elementsObject) {
+    const elSliderContainer = createElement(
+      "div",
+      ["slider-container"],
+      "",
+      elSliderFlexGrid
+    );
+    const elSliderTop = createElement(
+      "div",
+      ["slider-top"],
+      "",
+      elSliderContainer
+    );
+
+    const mediaArray = element.mediaURLs;
+
+    elSliderContainer.currIndex = 0;
+    elSliderContainer.mediaURLs = mediaArray;
+    elSliderContainer.currURL = mediaArray[elSliderContainer.currIndex];
+    elSliderContainer.addEventListener("click", (evnt) => {
+      const elSliCont = evnt.currentTarget;
+      const elSliTop = elSliCont.querySelector(".slider-top");
+      elSliCont.currIndex =
+        (elSliCont.currIndex + 1) % elSliCont.mediaURLs.length;
+      const currURL = elSliCont.mediaURLs[elSliCont.currIndex];
+      if (currURL) {
+        elSliTop.innerHTML = "";
+        elSliTop.append(renderMedia(currURL, ""));
+      } else {
+        elSliTop.innerHTML = "no media URLs found";
+      }
+    });
+
+    const elSliderBottom = createElement(
+      "div",
+      ["slider-bottom"],
+      "",
+      elSliderContainer
+    );
+    const elSliderTitle = createElement(
+      "h3",
+      ["slider-title", "text"],
+      element.name,
+      elSliderContainer
+    );
+    const elDescr = createElement(
+      "div",
+      ["slider-descr", "text", "text-wrap"],
+      element.shortDescr,
+      elSliderTitle
+    );
+    if (element.githubLink) {
+      const elSliderGithubL = createElement(
+        "a",
+        ["text"],
+        "GitHub Link",
+        elSliderTitle
+      );
+      elSliderGithubL.href = element.githubLink;
+    }
+
+    elSliderContainer.click();
+    // console.log("element", element);
+  }
+  return elSliderFlexGrid;
+}
+
+function renderMedia(mediaURL = "", direction) {
+  console.log("rendering the MediaURL: " + mediaURL);
+  mediaURL += "";
+  let result = "unrendered Media Url";
+  if (mediaURL.includes("mp4")) {
+    result = createElement("video", ["slider-video", "autoplay", "muted"]);
+    result.src = mediaURL;
+    result.autoplay = "autoplay";
+    result.controls = "controls";
+    result.muted = "muted";
+  } else if (
+    mediaURL.includes("png") ||
+    mediaURL.includes("jpg") ||
+    mediaURL.includes("jpeg")
+  ) {
+    result = createElement("img", ["slider-img"]);
+    result.src = mediaURL;
+  } else if (mediaURL.includes("github.com")) {
+    // <a
+    //   class="github"
+    //   href="https://github.com/mx0c/super-mario-python"
+    //   target="_blank"
+    //   rel="noopener"
+    // >
+    //   <strong>mx0c/super-mario-python</strong>
+    //   <img
+    //     src="https://img.shields.io/github/stars/mx0c/super-mario-python?style=social"
+    //     alt="stars"
+    //   />
+    //   <img
+    //     src="https://img.shields.io/github/forks/mx0c/super-mario-python?style=social"
+    //     alt="forks"
+    //   />
+    // </a>
+
+    const numMediaURLComponents = mediaURL.split("/").length;
+    const username = mediaURL.split("/")[numMediaURLComponents - 2];
+    const repoName = mediaURL.split("/")[numMediaURLComponents - 1];
+    const repoIdentifier = `${username}/${repoName}/`;
+    console.log(" - Github username", username, "repoName", repoName);
+
+    result = createElement("a", ["github", "text"]);
+    result.href = mediaURL;
+    result.target = "_blank";
+    result.rel = "noopener";
+    const elStrong = createElement("strong", ["text"], repoIdentifier, result);
+    const elImgStars = createElement("img", [], "", result);
+    elImgStars.src = `https://img.shields.io/github/stars/${username}/${repoName}?style=social`;
+    elImgStars.alt = "stars";
+    const elImgForks = createElement("img", [], "", result);
+    elImgForks.src = `https://img.shields.io/github/forks/${username}/${repoName}?style=social`;
+    elImgForks.alt = "forks";
+  } else {
+    result = 'Unknown MediaElement with mediaURL: "' + mediaURL + '"';
+  }
+  return result;
 }
 
 function generateLogoMarkdownFlex(elementsObject) {
@@ -198,6 +325,7 @@ function generateLogoMarkdownFlex(elementsObject) {
     const elMarkdown = createElement(
       "div",
       ["text", "markdown"],
+
       marked.parse(element.descriptionMarkdown),
       elMarkDiv
     );

@@ -90,8 +90,12 @@
         },
         {
           "name": "Game Dev",
-          "githubLink": 25,
-          "mediaURLs": ["./imgs/game_dev_1.png"],
+          "githubLink": "",
+          "mediaURLs": [
+            "https://github.com/mx0c/super-mario-python",
+            "./imgs/game_dev_1.png",
+            "./imgs/game_dev_2.png"
+          ],
           "shortDescr": "Indie prototypes using Unity and custom AI-driven NPC behaviors."
         },
         {
@@ -103,7 +107,11 @@
         {
           "name": "Community Projects",
           "githubLink": 20,
-          "mediaURLs": ["./imgs/community_1.png"],
+          "mediaURLs": [
+            "./imgs/community_1.mp4",
+            "./imgs/community_2.mp4",
+            "./imgs/community_1.png"
+          ],
           "shortDescr": "Open-source tools and workshops for students and local meetups."
         }
       ]

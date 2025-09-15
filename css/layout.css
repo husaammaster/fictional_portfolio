@@ -122,7 +122,7 @@ h3 {
 .column {
   padding: 15px 15px;
   border-radius: 10px;
-  /*overflow: visible;*/
+  overflow: hidden;
   min-width: 60px;
   filter: saturate(70%);
   transition: all 0.3s;
@@ -163,4 +163,29 @@ h3 {
   border-radius: 12px;
   border: 1px dotted #ececec;
   box-shadow: 0 0 25px 0 #ececec;
+}
+
+.slider-container {
+  margin-top: 30px;
+}
+
+.slider-top {
+  height: 350px;
+  padding: 5%;
+  background-color: lightblue;
+  text-align: center;
+}
+
+.github {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: system-ui;
+}
+
+.slider-img,
+.slider-video {
+  margin: auto;
+  height: 100%;
+  width: auto;
 }
