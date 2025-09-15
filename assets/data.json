@@ -7,27 +7,62 @@
         {
           "name": "Python",
           "value": 90,
-          "proj": "University & ML projects at Robosence."
+          "proj": "University & RoboSense ML"
         },
         {
           "name": "C++",
           "value": 80,
-          "proj": "Univerity: systems courses."
+          "proj": "University systems courses"
         },
         {
           "name": "Computer Vision",
           "value": 85,
-          "proj": "RoboSense & Master's thesis."
+          "proj": "RoboSense & Master's thesis"
         },
         {
           "name": "Machine Learning",
           "value": 78,
-          "proj": "Lab internships & Univerity."
+          "proj": "Lab internships & University"
         },
         {
           "name": "Web Dev",
           "value": 60,
-          "proj": "Built student-facing apps."
+          "proj": "Built student-facing apps"
+        },
+        {
+          "name": "TensorFlow",
+          "value": 82,
+          "proj": "Research experiments"
+        },
+        {
+          "name": "Docker & Kubernetes",
+          "value": 70,
+          "proj": "Containerized deployments"
+        },
+        {
+          "name": "React / Next.js",
+          "value": 65,
+          "proj": "Frontend for demos"
+        },
+        {
+          "name": "Data Analysis",
+          "value": 68,
+          "proj": "University Course"
+        },
+        {
+          "name": "Git",
+          "value": 72,
+          "proj": "University and all Jobs"
+        },
+        {
+          "name": "Algorithms",
+          "value": 55,
+          "proj": "Performance cources"
+        },
+        {
+          "name": "Computer Graphics",
+          "value": 50,
+          "proj": "Univerity courses"
         }
       ]
     },

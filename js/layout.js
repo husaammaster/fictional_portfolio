@@ -58,11 +58,7 @@ function generateChapContent(contentType, elementsObject) {
 
 function generateValueBars(elementsObject) {
   console.log(" - generateValueBars");
-  const elGraphDiv = createElement(
-    "div",
-    ["flex", "scrollX", "flex-start"],
-    ""
-  );
+  const elGraphDiv = createElement("div", ["flex", "flex-start"], "");
   const elGraphCount = createElement(
     "div",
     ["flex", "flex-dir-up", "flex-space-between"],
@@ -71,20 +67,23 @@ function generateValueBars(elementsObject) {
   );
   const elGraphBorder = createElement(
     "div",
-    ["flex", "flex-bottom-align"],
+    ["flex", "flex-bottom-align", "scrollX"],
     "",
     elGraphDiv
   );
+
+  elGraphDiv.style.padding = "30px";
+
   elGraphCount.style.maxWidth = "10%";
   elGraphCount.style.minHeight = "300px";
-  elGraphBorder.style.minWidth = 65 * elementsObject.length + "px";
+  // elGraphBorder.style.minWidth = 65 * elementsObject.length + "px";
 
   elGraphBorder.style.maxWidth = "90%";
   elGraphBorder.style.minHeight = "300px";
 
   elGraphBorder.style.borderBottom = "3px #333 solid";
   elGraphBorder.style.borderLeft = "3px #333 solid";
-  elGraphCount.style.padding = "10px";
+  elGraphCount.style.padding = "30px";
   elGraphCount.style.justifyContent = "space-between";
   elGraphBorder.style.padding = "10px";
 
@@ -94,8 +93,8 @@ function generateValueBars(elementsObject) {
     maxVal = Math.max(maxVal, element.value);
   });
 
-  for (let i = 0; i < 11; i++) {
-    const labelVal = i * (maxVal / 10).toFixed();
+  for (let i = 0; i < 10; i++) {
+    const labelVal = i * (maxVal / 9).toFixed();
     const elYNum = createElement(
       "span",
       ["yLabel", "text"],
@@ -103,6 +102,10 @@ function generateValueBars(elementsObject) {
       elGraphCount
     );
   }
+  elGraphCount.style.margin = 0;
+  elGraphCount.style.padding = 0;
+  elGraphCount.style.paddingBottom = "22px";
+  elGraphCount.style.paddingTop = "12px";
 
   const randCOLORS = shuffle(COLORS);
   for (let [ind, element] of Object.entries(elementsObject)) {
@@ -128,7 +131,7 @@ function generateValueBars(elementsObject) {
       element.proj,
       elColLabel
     );
-    elColumn.style.backgroundColor = randCOLORS[ind];
+    elColumn.style.backgroundColor = randCOLORS[ind % randCOLORS.length];
   }
   return elGraphDiv;
 }
@@ -145,7 +148,7 @@ function generateBadges(elementsObject) {
       element.name,
       elBadgeDiv
     );
-    elBadge.style.backgroundColor = randCOLORS[ind];
+    elBadge.style.backgroundColor = randCOLORS[ind % randCOLORS.length];
   }
   return elBadgeDiv;
 }
