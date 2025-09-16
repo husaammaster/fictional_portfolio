@@ -227,7 +227,7 @@ function generateSliderGrid(elementsObject) {
 
     function recTimeout() {
       elSliderContainer.click();
-      setTimeout(recTimeout, getRndInteger(5000, 9000));
+      setTimeout(recTimeout, getRndInteger(15000, 19000));
     }
     recTimeout();
   }

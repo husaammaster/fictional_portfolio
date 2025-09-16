@@ -78,45 +78,6 @@
       ]
     },
 
-    "Previous ProjectsData": {
-      "chapterDescr": "Selected projects demonstrating AI, CV, web development and community contributions.",
-      "type": "slider-grid",
-      "entries": [
-        {
-          "name": "AI Research",
-          "githubLink": 40,
-          "mediaURLs": ["./imgs/ai_research_1.png", "./imgs/ai_research_2.png"],
-          "shortDescr": "Published-style experiments on few-shot learning and model interpretability."
-        },
-        {
-          "name": "Game Dev",
-          "githubLink": "",
-          "mediaURLs": [
-            "https://github.com/mx0c/super-mario-python",
-            "./imgs/game_dev_1.png",
-            "./imgs/game_dev_2.png"
-          ],
-          "shortDescr": "Indie prototypes using Unity and custom AI-driven NPC behaviors."
-        },
-        {
-          "name": "Digital Art",
-          "githubLink": 15,
-          "mediaURLs": ["./imgs/digital_art_1.png"],
-          "shortDescr": "Generative visual pieces created with neural style transfer and shaders."
-        },
-        {
-          "name": "Community Projects",
-          "githubLink": 20,
-          "mediaURLs": [
-            "./imgs/community_1.mp4",
-            "./imgs/community_2.mp4",
-            "./imgs/community_1.png"
-          ],
-          "shortDescr": "Open-source tools and workshops for students and local meetups."
-        }
-      ]
-    },
-
     "ext Certificates and UniversityData": {
       "chapterDescr": "Short courses and certifications that support my AI and web development work.",
       "type": "logo-markdown-flex",
@@ -190,6 +151,44 @@
           "company": "Various Projects",
           "durationMonths": 12,
           "logoImg": "./imgs/logo_open_source.jpg"
+        }
+      ]
+    },
+    "Previous ProjectsData": {
+      "chapterDescr": "Selected projects demonstrating AI, CV, web development and community contributions.",
+      "type": "slider-grid",
+      "entries": [
+        {
+          "name": "AI Research",
+          "githubLink": "",
+          "mediaURLs": ["./imgs/ai_research_1.png", "./imgs/ai_research_2.png"],
+          "shortDescr": "Published-style experiments on few-shot learning and model interpretability."
+        },
+        {
+          "name": "Game Dev",
+          "githubLink": "https://github.com/mx0c/super-mario-python",
+          "mediaURLs": [
+            "https://github.com/mx0c/super-mario-python",
+            "./imgs/game_dev_1.png",
+            "./imgs/game_dev_2.png"
+          ],
+          "shortDescr": "Indie prototypes using Unity and custom AI-driven NPC behaviors."
+        },
+        {
+          "name": "Digital Art",
+          "githubLink": "",
+          "mediaURLs": ["./imgs/digital_art_1.png"],
+          "shortDescr": "Generative visual pieces created with neural style transfer and shaders."
+        },
+        {
+          "name": "Community Projects",
+          "githubLink": "",
+          "mediaURLs": [
+            "./imgs/community_1.mp4",
+            "./imgs/community_2.mp4",
+            "./imgs/community_1.png"
+          ],
+          "shortDescr": "Open-source tools and workshops for students and local meetups."
         }
       ]
     }
