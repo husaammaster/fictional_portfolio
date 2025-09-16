@@ -204,3 +204,7 @@ h3 {
 .slider-descr {
   margin: 5px;
 }
+
+.pos-relative {
+  position: relative;
+}
