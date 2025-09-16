@@ -2,7 +2,7 @@
 
 import { loadJSON } from "./ajax.js";
 import { createElement } from "./dom_utils.js";
-import { shuffle, COLORS } from "./design.js";
+import { getRndInteger, shuffle, COLORS } from "./design.js";
 import { scrollSectionWrapper } from "./scrollSections.js";
 
 export function init() {
@@ -210,20 +210,26 @@ function generateSliderGrid(elementsObject) {
       "div",
       ["slider-descr", "text", "text-wrap"],
       element.shortDescr,
-      elSliderTitle
+      elSliderContainer
     );
     if (element.githubLink) {
       const elSliderGithubL = createElement(
         "a",
-        ["text"],
+        ["slider-descr", "text"],
         "GitHub Link",
-        elSliderTitle
+        elSliderContainer
       );
       elSliderGithubL.href = element.githubLink;
     }
 
     elSliderContainer.click();
     // console.log("element", element);
+
+    function recTimeout() {
+      elSliderContainer.click();
+      setTimeout(recTimeout, getRndInteger(5000, 9000));
+    }
+    recTimeout();
   }
   return elSliderFlexGrid;
 }
@@ -325,7 +331,7 @@ function generateLogoMarkdownFlex(elementsObject) {
     const elMarkdown = createElement(
       "div",
       ["text", "markdown"],
-
+      // element.descriptionMarkdown,
       marked.parse(element.descriptionMarkdown),
       elMarkDiv
     );

@@ -124,28 +124,28 @@
         {
           "name": "B.Sc. Computer Science",
           "durationMonths": 36,
-          "descriptionMarkdown": "### Bachelor of Science in Computer Science\n\nFocused on algorithms, data structures, and software engineering. Completed capstone integrating CV modules with a web frontend.",
+          "descriptionMarkdown": "#### Bachelor of Science in Computer Science\n\nFocused on algorithms, data structures, and software engineering. Completed capstone integrating CV modules with a web frontend.",
           "company": "State University",
           "logoImg": "./imgs/logo_university_bs.jpg"
         },
         {
           "name": "M.Sc. Computer Science",
           "durationMonths": 24,
-          "descriptionMarkdown": "### Master of Science in Computer Science\n\nSpecialized in machine learning and computer vision with a thesis on real-time detection. Coursework and research strengthened PyTorch and deployment skills.",
+          "descriptionMarkdown": "#### Master of Science in Computer Science\n\nSpecialized in machine learning and computer vision with a thesis on real-time detection. Coursework and research strengthened PyTorch and deployment skills.",
           "company": "Tech Institute",
           "logoImg": "./imgs/logo_university_ms.jpg"
         },
         {
           "name": "Deep Learning Specialization",
           "durationMonths": 3,
-          "descriptionMarkdown": "### Deep Learning Specialization\n\nCompleted practical assignments on neural networks, CNNs, and sequence models. Learned deployment basics and best practices for model evaluation.",
+          "descriptionMarkdown": "#### Deep Learning Specialization\n\nCompleted practical assignments on neural networks, CNNs, and sequence models. Learned deployment basics and best practices for model evaluation.",
           "company": "Coursera",
           "logoImg": "./imgs/logo_coursera.jpg"
         },
         {
           "name": "Full‑Stack Web Dev",
           "durationMonths": 4,
-          "descriptionMarkdown": "### Full‑Stack Web Development\n\nBuilt multiple full‑stack apps using React, Node.js, and RESTful APIs. Covered deployment, authentication, and CI/CD basics.",
+          "descriptionMarkdown": "#### Full‑Stack Web Development\n\nBuilt multiple full‑stack apps using React, Node.js, and RESTful APIs. Covered deployment, authentication, and CI/CD basics.",
           "company": "alfatraining Aachen",
           "logoImg": "./imgs/logo_alfatraining.jpg"
         }
@@ -158,35 +158,35 @@
       "entries": [
         {
           "name": "ML Research Intern",
-          "descriptionMarkdown": "### ML Research Intern\n\nWorked on model optimization for edge devices and wrote reproducible experiments. Contributed to a paper draft and internal tooling for training jobs.",
+          "descriptionMarkdown": "#### ML Research Intern\n\nWorked on model optimization for edge devices and wrote reproducible experiments. Contributed to a paper draft and internal tooling for training jobs.",
           "company": "VisionWorks Lab",
           "durationMonths": 6,
           "logoImg": "./imgs/logo_visionworks.jpg"
         },
         {
           "name": "Software Engineering Intern",
-          "descriptionMarkdown": "### Software Engineering Intern\n\nImplemented backend services and REST APIs for analytics dashboards. Improved CI pipelines and reduced deployment time.",
+          "descriptionMarkdown": "#### Software Engineering Intern\n\nImplemented backend services and REST APIs for analytics dashboards. Improved CI pipelines and reduced deployment time.",
           "company": "CloudScale Inc",
           "durationMonths": 4,
           "logoImg": "./imgs/logo_cloudscale.jpg"
         },
         {
           "name": "Computer Vision Intern",
-          "descriptionMarkdown": "### Computer Vision Intern\n\nDeveloped object detection models and dataset annotation tools. Integrated models into a real‑time prototype with latency testing.",
+          "descriptionMarkdown": "#### Computer Vision Intern\n\nDeveloped object detection models and dataset annotation tools. Integrated models into a real‑time prototype with latency testing.",
           "company": "RoboSense",
           "durationMonths": 3,
           "logoImg": "./imgs/logo_robosense.jpg"
         },
         {
           "name": "Web Developer (Part‑time)",
-          "descriptionMarkdown": "### Web Developer (Part‑time)\n\nBuilt frontend features and improved UX for a student platform using React. Added accessibility improvements and optimized bundle size.",
+          "descriptionMarkdown": "#### Web Developer (Part‑time)\n\nBuilt frontend features and improved UX for a student platform using React. Added accessibility improvements and optimized bundle size.",
           "company": "CampusApps",
           "durationMonths": 8,
           "logoImg": "./imgs/logo_campusapps.jpg"
         },
         {
           "name": "Open Source Contributor",
-          "descriptionMarkdown": "### Open Source Contributor\n\nMaintained and contributed to ML tooling libraries with bug fixes and feature PRs. Reviewed issues and helped onboard new contributors.",
+          "descriptionMarkdown": "#### Open Source Contributor\n\nMaintained and contributed to ML tooling libraries with bug fixes and feature PRs. Reviewed issues and helped onboard new contributors.",
           "company": "Various Projects",
           "durationMonths": 12,
           "logoImg": "./imgs/logo_open_source.jpg"

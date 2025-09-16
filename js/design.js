@@ -13,7 +13,7 @@ export const COLORS = [
   "#EC4899", // pink
 ];
 
-function getRndInteger(min, max) {
+export function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 

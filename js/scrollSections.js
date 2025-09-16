@@ -8,7 +8,7 @@ export const elMain = createElement("main", ["main"], "", document.body);
 const elTitle = createElement(
   "h2",
   ["title", "float-right"],
-  "husaammaster (fictional portfolio)",
+  "husaammaster (fictional portfolio) <a href='https://github.com/husaammaster/fictional_portfolio/'>github.com/husaammaster/fictional_portfolio/</a>",
   elHeader
 );
 const elNavbar = createElement("nav", ["navbar", "buttons"], "", elHeader);

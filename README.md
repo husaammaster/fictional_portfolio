@@ -6,18 +6,20 @@ Erstelle eine Webseite mit einem persönlichen Portfolio als Single-Pager mit ei
 
 ### Optionen To-Do:
 
-- (Eigen) Je nach "typ" in der JSON die einzelnen chapter-elemente rendern
-- Die Daten werden per Ajax aus einer JSON-Datei geladen
-- Das Foto wechselt als Slideshow
 - Die Seite hat ein Kontaktformular mit eigener Validierung
 - Wenn sich die Maus dem Menü nähert (schon bevor das Menü berührt wird), wird dieses vergrößert.
 - In unregelmäßigen Abständen macht der Kontakt-Button auf sich aufmerksam.
 - Bunte animation an der Tabelle, oder zb dass man das per knopfdruck sortieren kann
 - Rechter Mausklick unterdrücken und stattdessen die LKapitelübersicht mit Position fixed machen
--
+- repo link zu diesem repo oben im header
+- knöpfe für den slider
 
 ### Optionen Fertig:
 
+- slider timeout dass der danach wechselt, vlt auch ein gerenderter ladebalken mit value
+- Das Foto wechselt als Slideshow
+- (Eigen) Je nach "typ" in der JSON die einzelnen chapter-elemente rendern
+- Die Daten werden per Ajax aus einer JSON-Datei geladen
 - Das Diagramm ist animiert
 - (Eigen) Hover saturation für Farbbalken
 - (Eigen) Chapter container zu fixed breite machen und den main zu eine flex mit flexwrap machen
