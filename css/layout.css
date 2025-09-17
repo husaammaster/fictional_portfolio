@@ -3,6 +3,9 @@
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
+body {
+  overflow-x: hidden;
+}
 .consolas {
   font-family: "Courier New", Courier, monospace;
 }
@@ -211,4 +214,59 @@ h3 {
 
 .pos-relative {
   position: relative;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  10% {
+    transform: translateX(-8px);
+  }
+  20% {
+    transform: translateX(8px);
+  }
+  30% {
+    transform: translateX(-6px);
+  }
+  40% {
+    transform: translateX(6px);
+  }
+  50% {
+    transform: translateX(-4px);
+  }
+  60% {
+    transform: translateX(4px);
+  }
+  70% {
+    transform: translateX(-2px);
+  }
+  80% {
+    transform: translateX(2px);
+  }
+  90% {
+    transform: translateX(0.5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.shake {
+  display: inline-block; /* or block as needed */
+  animation: shake 0.8s ease-in-out;
+  /* autoplay once — remove 'forwards' if you want it to return to original instantly */
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+  will-change: transform;
+}
+.dark {
+  background-color: #777;
+}
+
+.contrast {
+  filter: contrast(150%);
+}
+.rot90 {
+  transform: rotate(90);
 }

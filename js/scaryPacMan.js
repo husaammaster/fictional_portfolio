@@ -6,6 +6,7 @@
 
 import { createElement } from "./dom_utils.js";
 import globData from "./globData.js";
+import { getRndInteger } from "./design.js";
 
 class Pacman {
   constructor(id, colorHEX, appliedClasses, framerate = 30) {
@@ -19,12 +20,15 @@ class Pacman {
     this.speedY = 0;
     this.lookDir = 45;
     this.currSpeed = 0;
-    this.maxSpeed = 950;
-    this.accelerationPerSec = 2500;
+    this.maxSpeed = 1300;
+    this.accelerationPerSec = 2000;
     this.targetDir = 0;
-    this.slowdown = 0.99;
+    this.slowdownPerSec = 0.9;
 
     this.lastUpdateMs = Date.now();
+    this.randSteer = 0;
+    this.randSteerChangePerSec = 150;
+    this.randSteerMax = 65;
 
     this.element = createElement(
       "div",
@@ -81,7 +85,7 @@ class Pacman {
       this.element.style.left
     );
 
-    this.setTargetDir();
+    this.setTargetDir(timeDeltaSec);
     this.applyAcceleration(timeDeltaSec);
     this.updatePos(timeDeltaSec);
 
@@ -92,11 +96,24 @@ class Pacman {
     // TO-DO do some fancy run away animation
   }
 
-  setTargetDir() {
+  setTargetDir(timeDeltaSec) {
     this.targetDir = this.angleCWFromUp(this.getPos(), this.getMousePos());
+
+    let dirChange =
+      this.randSteer +
+      this.randSteerChangePerSec *
+        timeDeltaSec *
+        1000 *
+        2 *
+        (Math.random() - 0.5);
+    if (dirChange > this.randSteerMax) dirChange = this.randSteerMax;
+    if (dirChange < -this.randSteerMax) dirChange = -this.randSteerMax;
+
+    this.targetDir += dirChange;
     console.log(" - updating targetDir", this.targetDir);
   }
 
+  // inside class, set e.g. this.slowdownPerSec = 0.9; // keep 90% velocity each second
   applyAcceleration(timeDeltaSec) {
     const accelSpeed = this.accelerationPerSec * timeDeltaSec;
     const rad = (this.targetDir * Math.PI) / 180;
@@ -104,14 +121,19 @@ class Pacman {
     const pushY = -accelSpeed * Math.cos(rad);
     this.speedX += pushX;
     this.speedY += pushY;
-    // after modifying this.speedX/Y in applyAcceleration:
+
+    // frame-rate-independent damping
+    const perFrameDamping = Math.pow(this.slowdownPerSec, timeDeltaSec);
+    this.speedX *= perFrameDamping;
+    this.speedY *= perFrameDamping;
+
+    // clamp hard to maxSpeed
     const speed = Math.hypot(this.speedX, this.speedY);
-    let scale = this.slowdown;
     if (speed > this.maxSpeed) {
-      scale = this.maxSpeed / speed;
+      const k = this.maxSpeed / speed;
+      this.speedX *= k;
+      this.speedY *= k;
     }
-    this.speedX *= scale;
-    this.speedY *= scale;
   }
 
   updatePos(timeDeltaSec) {
@@ -171,8 +193,10 @@ class Pacman {
 }
 
 export function createPacMan() {
+  const PM1 = new Pacman("PM1", "#f3b918ff", ["shake"], 144);
+  const PM2 = new Pacman("PM2", "#18ecf3ff", ["dark"], 144);
   const PM3 = new Pacman("PM3", "#f3189fff", ["contrast"], 144);
-  const PM1 = new Pacman("PM1", "#f3b918ff", ["shake"], 30);
-  const PM2 = new Pacman("PM2", "#18ecf3ff", ["dark"], 60);
-  const PM9 = new Pacman("PM3", "#000000ff", ["rot90"], 10);
+  const PM4 = new Pacman("PM4", "#000000ff", ["rot90"], 144);
+
+  //handleCollisions([PM1, PM2, PM3, PM4]);
 }
