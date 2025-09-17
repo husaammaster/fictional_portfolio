@@ -20,17 +20,17 @@ class Pacman {
     this.speedY = 0;
     this.lookDir = 45;
     this.currSpeed = 0;
-    this.maxSpeed = 1100;
-    this.accelerationPerSec = 1350;
+    this.maxSpeed = 300;
+    this.accelerationPerSec = 400;
     this.targetDir = 0;
-    this.slowdownPerSec = 0.95;
+    this.slowdownPerSec = 0.99;
 
     this.lastUpdateMs = Date.now();
     this.randSteer = 0;
-    this.randSteerChangePerSec = 20;
-    this.randSteerMax = 90;
+    this.randSteerChangePerSec = 30;
+    this.randSteerMax = 80;
 
-    this.element = createElement(
+    this.domElement = createElement(
       "div",
       ["pacman", "flex", "flex-center-center"],
       "",
@@ -41,11 +41,11 @@ class Pacman {
       "h1",
       ["pacman-icon", "consolas", "pos-relative"],
       "<i class='bi bi-rocket'></i>",
-      this.element
+      this.domElement
     );
     this.icon = icon;
     this.initialized = false;
-    this.element.PMObject = this;
+    this.domElement.PMObject = this;
 
     setInterval(() => {
       const PMObject = this;
@@ -60,9 +60,8 @@ class Pacman {
 
   init() {
     //  TO-DO add pacman cherry in top right, which on hover spawns pacman through a zoom in fade animation
-    const style = this.element.style;
-    // TO-DO re-activate pointerEvents
-    style.pointerEvents = "none";
+    const style = this.domElement.style;
+
     style.color = this.colorHEX;
     style.position = "absolute";
     style.transform = "translate(-50%, -50%)";
@@ -74,6 +73,10 @@ class Pacman {
 
     this.lastUpdateMs = Date.now();
     //console.log("initializing Pacman");
+
+    this.domElement.addEventListener("click", () => {
+      this.clicked();
+    });
   }
   update() {
     const now = Date.now();
@@ -93,7 +96,11 @@ class Pacman {
   }
 
   clicked() {
-    // TO-DO do some fancy run away animation
+    this.accelerationPerSec = 0;
+    this.slowdownPerSec = 0.18;
+    this.appliedClasses = ["nothing"];
+    // Add hit class
+    this.domElement.classList.add("hit");
   }
 
   setTargetDir(timeDeltaSec) {
@@ -150,7 +157,7 @@ class Pacman {
   }
 
   getPos() {
-    const rect = this.element.getBoundingClientRect();
+    const rect = this.domElement.getBoundingClientRect();
     // return [centerX, centerY] in page coordinates
     const x = Math.round(rect.left + rect.width / 2 + window.scrollX);
     const y = Math.round(rect.top + rect.height / 2 + window.scrollY);
@@ -186,7 +193,7 @@ class Pacman {
   }
 
   moveTo(newX, newY) {
-    const style = this.element.style;
+    const style = this.domElement.style;
     style.top = newY + "px";
     style.left = newX + "px";
   }
@@ -194,7 +201,7 @@ class Pacman {
 
 export function createPacMan() {
   const PM1 = new Pacman("PM1", "#f3b918ff", ["contrast"], 144);
-  const PM2 = new Pacman("PM2", "#18ecf3ff", ["rot90"], 144);
+  const PM2 = new Pacman("PM2", "#18ecf3ff", ["shake"], 144);
   const PM3 = new Pacman("PM3", "#f3189fff", ["shake"], 144);
   const PM4 = new Pacman("PM4", "#000000ff", ["dark"], 144);
 
@@ -216,11 +223,11 @@ function handleCollisions(PacMen) {
     for (const PM of PacMen) {
       // Ensure style.top/left are applied (convert to numbers if needed)
       // If you position via transform instead, prefer getBoundingClientRect alone.
-      const pmRect = PM.element.getBoundingClientRect();
+      const pmRect = PM.domElement.getBoundingClientRect();
 
       for (const el of allSimpleElements) {
         // Skip if element is the pacman's own node (or contains it)
-        if (el === PM.element || el.contains(PM.element)) continue;
+        if (el === PM.domElement || el.contains(PM.domElement)) continue;
 
         const elRect = el.getBoundingClientRect();
 
@@ -229,7 +236,7 @@ function handleCollisions(PacMen) {
         }
       }
     }
-  }, 10);
+  }, 100);
 
   // Optional: return a function to stop checking
   // return () => clearInterval(interval);
@@ -252,8 +259,9 @@ function onCollision(pacman, element) {
   element.setAttribute(key, "1");
   console.log("Collision:", pacman, element);
   // Example action:
-  element.classList.add(pacman.appliedClasses[0]);
+  const appliedClass = pacman.appliedClasses[0];
+  element.classList.add(appliedClass);
   setTimeout(() => {
-    element.classList.remove(pacman.appliedClasses[0]);
+    element.classList.remove(appliedClass);
   }, 1500);
 }
