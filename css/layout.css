@@ -3,6 +3,10 @@
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
+*:not(.pacman):not(.pacman-icon) {
+  transition: all 0.3s;
+}
+
 body {
   overflow-x: hidden;
 }
@@ -253,7 +257,7 @@ h3 {
 }
 
 .shake {
-  display: inline-block; /* or block as needed */
+  /*display: inline-block;  or block as needed */
   animation: shake 0.8s ease-in-out;
   /* autoplay once — remove 'forwards' if you want it to return to original instantly */
   animation-iteration-count: 1;
@@ -261,12 +265,12 @@ h3 {
   will-change: transform;
 }
 .dark {
-  background-color: #777;
+  background-color: #777 !important;
 }
 
 .contrast {
-  filter: contrast(150%);
+  filter: contrast(150%) !important;
 }
 .rot90 {
-  transform: rotate(90);
+  transform: rotate(90deg) !important;
 }

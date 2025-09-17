@@ -20,15 +20,15 @@ class Pacman {
     this.speedY = 0;
     this.lookDir = 45;
     this.currSpeed = 0;
-    this.maxSpeed = 1300;
-    this.accelerationPerSec = 2000;
+    this.maxSpeed = 1100;
+    this.accelerationPerSec = 1350;
     this.targetDir = 0;
-    this.slowdownPerSec = 0.9;
+    this.slowdownPerSec = 0.95;
 
     this.lastUpdateMs = Date.now();
     this.randSteer = 0;
-    this.randSteerChangePerSec = 150;
-    this.randSteerMax = 65;
+    this.randSteerChangePerSec = 20;
+    this.randSteerMax = 90;
 
     this.element = createElement(
       "div",
@@ -73,17 +73,17 @@ class Pacman {
     );
 
     this.lastUpdateMs = Date.now();
-    console.log("initializing Pacman");
+    //console.log("initializing Pacman");
   }
   update() {
     const now = Date.now();
     const timeDeltaSec = (now - this.lastUpdateMs) / 1000;
 
-    console.log(
-      "updating Pacman",
-      this.element.style.top,
-      this.element.style.left
-    );
+    //console.log(
+    //   "updating Pacman",
+    //   this.element.style.top,
+    //   this.element.style.left
+    // );
 
     this.setTargetDir(timeDeltaSec);
     this.applyAcceleration(timeDeltaSec);
@@ -110,7 +110,7 @@ class Pacman {
     if (dirChange < -this.randSteerMax) dirChange = -this.randSteerMax;
 
     this.targetDir += dirChange;
-    console.log(" - updating targetDir", this.targetDir);
+    //console.log(" - updating targetDir", this.targetDir);
   }
 
   // inside class, set e.g. this.slowdownPerSec = 0.9; // keep 90% velocity each second
@@ -141,7 +141,7 @@ class Pacman {
     const deltaY = this.speedY * timeDeltaSec;
     const oldPos = this.getPos();
     this.move(deltaX, deltaY);
-    console.log(" - Pos change: ", deltaX, deltaY);
+    //console.log(" - Pos change: ", deltaX, deltaY);
     this.updateFacingDirection(oldPos, this.getPos());
   }
 
@@ -164,7 +164,7 @@ class Pacman {
 
   angleCWFromUp(fromPos, targetPos) {
     //chatGPT
-    console.log(fromPos, targetPos);
+    //console.log(fromPos, targetPos);
 
     const dx = targetPos[0] - fromPos[0];
     const dy = -(targetPos[1] - fromPos[1]);
@@ -174,7 +174,7 @@ class Pacman {
     // step2: convert to angle from +y axis CW:
     // angleCW = (90deg - theta_in_deg) mod 360
     let deg = (90 - (theta * 180) / Math.PI) % 360;
-    console.log("[angle]: ", dx, dy, deg, "deg");
+    //console.log("[angle]: ", dx, dy, deg, "deg");
 
     if (deg < 0) deg += 360;
     return deg;
@@ -193,10 +193,67 @@ class Pacman {
 }
 
 export function createPacMan() {
-  const PM1 = new Pacman("PM1", "#f3b918ff", ["shake"], 144);
-  const PM2 = new Pacman("PM2", "#18ecf3ff", ["dark"], 144);
-  const PM3 = new Pacman("PM3", "#f3189fff", ["contrast"], 144);
-  const PM4 = new Pacman("PM4", "#000000ff", ["rot90"], 144);
+  const PM1 = new Pacman("PM1", "#f3b918ff", ["contrast"], 144);
+  const PM2 = new Pacman("PM2", "#18ecf3ff", ["rot90"], 144);
+  const PM3 = new Pacman("PM3", "#f3189fff", ["shake"], 144);
+  const PM4 = new Pacman("PM4", "#000000ff", ["dark"], 144);
 
-  //handleCollisions([PM1, PM2, PM3, PM4]);
+  setTimeout(() => handleCollisions([PM1, PM2, PM3, PM4]), 1000);
+}
+
+function handleCollisions(PacMen) {
+  // Select all elements under body except div and section
+  const allSimpleElements = Array.from(
+    document.querySelectorAll(
+      ":not(.flex):not(.chapter):not(header):not(main):not(.pacman-icon):not(i):not(.pacman)"
+    )
+  );
+  const allTextElements = Array.from(document.querySelectorAll(".text"));
+  allSimpleElements.concat(allTextElements);
+
+  // Poll for collisions every 10ms
+  const interval = setInterval(() => {
+    for (const PM of PacMen) {
+      // Ensure style.top/left are applied (convert to numbers if needed)
+      // If you position via transform instead, prefer getBoundingClientRect alone.
+      const pmRect = PM.element.getBoundingClientRect();
+
+      for (const el of allSimpleElements) {
+        // Skip if element is the pacman's own node (or contains it)
+        if (el === PM.element || el.contains(PM.element)) continue;
+
+        const elRect = el.getBoundingClientRect();
+
+        if (rectsOverlap(pmRect, elRect)) {
+          onCollision(PM, el);
+        }
+      }
+    }
+  }, 10);
+
+  // Optional: return a function to stop checking
+  // return () => clearInterval(interval);
+}
+
+function rectsOverlap(a, b) {
+  return !(
+    a.right < b.left ||
+    a.left > b.right ||
+    a.bottom < b.top ||
+    a.top > b.bottom
+  );
+}
+
+function onCollision(pacman, element) {
+  // Default handler — replace with your own behavior
+  // Example: log once per collision by toggling a data attribute
+  const key = `data-collided-with-${pacman.id || pacman.name || Math.random()}`;
+
+  element.setAttribute(key, "1");
+  console.log("Collision:", pacman, element);
+  // Example action:
+  element.classList.add(pacman.appliedClasses[0]);
+  setTimeout(() => {
+    element.classList.remove(pacman.appliedClasses[0]);
+  }, 1500);
 }
