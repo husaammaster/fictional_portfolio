@@ -5,21 +5,24 @@
 // elements of the css class fears will have a shaking animation and have their saturation halved
 
 import { createElement } from "./dom_utils.js";
+import globData from "./globData.js";
 
 class Pacman {
-  constructor(id, colorHEX, appliedClasses) {
+  constructor(id, colorHEX, appliedClasses, framerate = 30) {
     this.id = id;
     this.colorHEX = colorHEX;
     this.iconRotation = 0;
     this.appliedClasses = appliedClasses;
+    this.framerate = framerate;
 
     this.speedX = 0;
     this.speedY = 0;
     this.lookDir = 45;
     this.currSpeed = 0;
     this.maxSpeed = 950;
-    this.accelerationPerSec = 1500;
+    this.accelerationPerSec = 2500;
     this.targetDir = 0;
+    this.slowdown = 0.99;
 
     this.lastUpdateMs = Date.now();
 
@@ -40,18 +43,18 @@ class Pacman {
     this.initialized = false;
     this.element.PMObject = this;
 
-    document.body.addEventListener("mousemove", (evnt) => {
+    setInterval(() => {
       const PMObject = this;
       if (!PMObject.initialized) {
-        PMObject.init(evnt);
+        PMObject.init();
         PMObject.initialized = true;
       } else {
-        PMObject.update(evnt);
+        PMObject.update();
       }
-    });
+    }, 1000 / this.framerate);
   }
 
-  init(evnt) {
+  init() {
     //  TO-DO add pacman cherry in top right, which on hover spawns pacman through a zoom in fade animation
     const style = this.element.style;
     // TO-DO re-activate pointerEvents
@@ -68,7 +71,7 @@ class Pacman {
     this.lastUpdateMs = Date.now();
     console.log("initializing Pacman");
   }
-  update(evnt) {
+  update() {
     const now = Date.now();
     const timeDeltaSec = (now - this.lastUpdateMs) / 1000;
 
@@ -78,7 +81,7 @@ class Pacman {
       this.element.style.left
     );
 
-    this.setTargetDir(evnt);
+    this.setTargetDir();
     this.applyAcceleration(timeDeltaSec);
     this.updatePos(timeDeltaSec);
 
@@ -89,8 +92,8 @@ class Pacman {
     // TO-DO do some fancy run away animation
   }
 
-  setTargetDir(evnt) {
-    this.targetDir = this.angleCWFromUp(this.getPos(), this.getMousePos(evnt));
+  setTargetDir() {
+    this.targetDir = this.angleCWFromUp(this.getPos(), this.getMousePos());
     console.log(" - updating targetDir", this.targetDir);
   }
 
@@ -103,11 +106,12 @@ class Pacman {
     this.speedY += pushY;
     // after modifying this.speedX/Y in applyAcceleration:
     const speed = Math.hypot(this.speedX, this.speedY);
+    let scale = this.slowdown;
     if (speed > this.maxSpeed) {
-      const scale = this.maxSpeed / speed;
-      this.speedX *= scale;
-      this.speedY *= scale;
+      scale = this.maxSpeed / speed;
     }
+    this.speedX *= scale;
+    this.speedY *= scale;
   }
 
   updatePos(timeDeltaSec) {
@@ -119,8 +123,8 @@ class Pacman {
     this.updateFacingDirection(oldPos, this.getPos());
   }
 
-  getMousePos(evnt) {
-    return [evnt.pageX, evnt.pageY];
+  getMousePos() {
+    return [globData.mousePos.x, globData.mousePos.y];
   }
 
   getPos() {
@@ -167,8 +171,8 @@ class Pacman {
 }
 
 export function createPacMan() {
-  const PM1 = new Pacman("PM1", "#f3b918ff", ["shake"]);
-  const PM2 = new Pacman("PM2", "#18ecf3ff", ["dark"]);
-  const PM3 = new Pacman("PM3", "#f3189fff", ["contrast"]);
-  const PM9 = new Pacman("PM3", "#000000ff", ["rot90"]);
+  const PM3 = new Pacman("PM3", "#f3189fff", ["contrast"], 144);
+  const PM1 = new Pacman("PM1", "#f3b918ff", ["shake"], 30);
+  const PM2 = new Pacman("PM2", "#18ecf3ff", ["dark"], 60);
+  const PM9 = new Pacman("PM3", "#000000ff", ["rot90"], 10);
 }

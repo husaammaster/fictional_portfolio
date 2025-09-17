@@ -4,6 +4,7 @@ import { loadJSON } from "./ajax.js";
 import { createElement } from "./dom_utils.js";
 import { getRndInteger, shuffle, COLORS } from "./design.js";
 import { scrollSectionWrapper } from "./scrollSections.js";
+import globData from "./globData.js";
 
 export function init() {
   console.log("Starting the init");
@@ -38,6 +39,11 @@ export function init() {
       scrollSectionWrapper(dataName, elDataDisplay);
     }
   }
+
+  document.body.addEventListener("mousemove", (evnt) => {
+    globData.mousePos.x = evnt.pageX;
+    globData.mousePos.y = evnt.pageY;
+  });
 }
 
 function generateChapContent(contentType, elementsObject) {
