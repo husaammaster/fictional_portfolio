@@ -220,10 +220,10 @@ class Pacman {
 }
 
 export function createPacMan() {
-  const PM1 = new Pacman("PM1", "#f3b918ff", ["contrast"], 144);
-  const PM2 = new Pacman("PM2", "#18ecf3ff", ["shake"], 144);
-  const PM3 = new Pacman("PM3", "#f3189fff", ["shake"], 144);
-  const PM4 = new Pacman("PM4", "#000000ff", ["dark"], 144);
+  const PM1 = new Pacman("Orange Lighter", "#f3b918ff", ["contrast"], 144);
+  const PM2 = new Pacman("Blue Shaker", "#18ecf3ff", ["shake"], 144);
+  const PM3 = new Pacman("Red Shaker", "#f3189fff", ["shake"], 144);
+  const PM4 = new Pacman("Black Darkness", "#000000ff", ["dark"], 144);
 
   setTimeout(() => handleCollisions([PM1, PM2, PM3, PM4]), 1000);
 }
@@ -274,12 +274,14 @@ function rectsOverlap(a, b) {
 function onCollision(pacman, element) {
   // Default handler — replace with your own behavior
   // Example: log once per collision by toggling a data attribute
-  const key = `data-collided-with-${pacman.id || pacman.name || Math.random()}`;
+  // const key = `data-collided-with-${pacman.id || pacman.name || Math.random()}`;
 
-  element.setAttribute(key, "1");
+  // element.setAttribute(key, "1");
   // Example action:
   const appliedClass = pacman.appliedClasses[0];
-  element.classList.add(appliedClass);
+  if (!pacman.deactivated) {
+    element.classList.add(appliedClass);
+  }
   setTimeout(() => {
     element.classList.remove(appliedClass);
   }, 1500);

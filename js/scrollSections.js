@@ -2,7 +2,7 @@
 
 import { createElement } from "./dom_utils.js";
 
-const elHeader = createElement("header", ["header"], "", document.body);
+export const elHeader = createElement("header", ["header"], "", document.body);
 export const elMain = createElement("main", ["main"], "", document.body);
 
 const elTitle = createElement(

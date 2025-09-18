@@ -3,7 +3,7 @@
 import { loadJSON } from "./ajax.js";
 import { createElement } from "./dom_utils.js";
 import { getRndInteger, shuffle, COLORS } from "./design.js";
-import { scrollSectionWrapper } from "./scrollSections.js";
+import { elHeader, elMain, scrollSectionWrapper } from "./scrollSections.js";
 import globData from "./globData.js";
 
 export function init() {
@@ -356,7 +356,7 @@ function renderRightMouseWRepairMenu(evnt, elMenuUL) {
   elMenuUL.classList.remove("hidden");
   elMenuUL.style.top = evnt.pageY + "px";
   elMenuUL.style.left = evnt.pageX + "px";
-  elMenuUL.innerHTML = "";
+  elMenuUL.innerHTML = "Click on a Rocket to destroy it!";
 
   const elPacmen = Array.from(document.querySelectorAll(".pacman"));
   for (const elPM of elPacmen) {
@@ -365,7 +365,7 @@ function renderRightMouseWRepairMenu(evnt, elMenuUL) {
 
       const elPacmanLI = createElement(
         "li",
-        ["text", "repair-pacman"],
+        ["text", "repair-pacman", "navButton"],
         "repair " + elPM.PMObject.name,
         elMenuUL
       );
@@ -388,12 +388,28 @@ function replaceRightMouse() {
   );
   elMenuUL.classList.add("hidden");
 
+  document.body.addEventListener("contextmenu", (evnt) =>
+    evnt.preventDefault()
+  );
+
   document.body.addEventListener("mousedown", (evnt) => {
     if (evnt.which == 3) {
       evnt.preventDefault();
       renderRightMouseWRepairMenu(evnt, elMenuUL);
-    } else if (evnt.which == 1) {
+    } else if (evnt.which != 3) {
       setTimeout(elMenuUL.classList.add("hidden"), 1000);
     }
   });
+}
+
+function renderPacmanSpawner() {
+  const elPMSpawner = createElement(
+    "img",
+    ["pacman-spawner"],
+    "",
+    elHeader,
+    "pacman-spawner"
+  );
+
+  elPMSpawner.addEventListener("clicked", (evnt) => {});
 }

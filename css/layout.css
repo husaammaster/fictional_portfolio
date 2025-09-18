@@ -233,8 +233,8 @@ h3 {
 }
 
 .contrast {
-  filter: brightness(1.1) !important;
-  color: lightgray !important;
+  filter: brightness(1.15) !important;
+  color: #444;
 }
 .rot5 {
   transform: rotate(5deg) !important;
