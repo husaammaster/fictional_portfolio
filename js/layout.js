@@ -44,6 +44,8 @@ export function init() {
     globData.mousePos.x = evnt.pageX;
     globData.mousePos.y = evnt.pageY;
   });
+
+  replaceRightMouse();
 }
 
 function generateChapContent(contentType, elementsObject) {
@@ -345,4 +347,53 @@ function generateLogoMarkdownFlex(elementsObject) {
     elMarkdown.style.padding = "10px";
   }
   return elMarkDivContainer;
+}
+
+function renderRightMouseWRepairMenu(evnt, elMenuUL) {
+  console.log("rendering right mouse menu");
+  console.log(elMenuUL);
+
+  elMenuUL.classList.remove("hidden");
+  elMenuUL.style.top = evnt.pageY + "px";
+  elMenuUL.style.left = evnt.pageX + "px";
+  elMenuUL.innerHTML = "";
+
+  const elPacmen = Array.from(document.querySelectorAll(".pacman"));
+  for (const elPM of elPacmen) {
+    if (elPM.PMObject.deactivated) {
+      console.log("rendered one PM Menu repair item");
+
+      const elPacmanLI = createElement(
+        "li",
+        ["text", "repair-pacman"],
+        "repair " + elPM.PMObject.name,
+        elMenuUL
+      );
+      elPacmanLI.addEventListener("click", (evnt) => {
+        elPM.PMObject.repair();
+      });
+    }
+  }
+}
+
+function replaceRightMouse() {
+  console.log("replaced Right Mouse event");
+
+  const elMenuUL = createElement(
+    "ul",
+    ["text"],
+    "",
+    document.body,
+    "repair-menu"
+  );
+  elMenuUL.classList.add("hidden");
+
+  document.body.addEventListener("mousedown", (evnt) => {
+    if (evnt.which == 3) {
+      evnt.preventDefault();
+      renderRightMouseWRepairMenu(evnt, elMenuUL);
+    } else if (evnt.which == 1) {
+      setTimeout(elMenuUL.classList.add("hidden"), 1000);
+    }
+  });
 }

@@ -11,23 +11,26 @@ import { getRndInteger } from "./design.js";
 class Pacman {
   constructor(id, colorHEX, appliedClasses, framerate = 30) {
     this.id = id;
+    this.name = this.id;
     this.colorHEX = colorHEX;
     this.iconRotation = 0;
     this.appliedClasses = appliedClasses;
     this.framerate = framerate;
+    this.deactivated = false;
 
     this.speedX = 0;
     this.speedY = 0;
     this.lookDir = 45;
     this.currSpeed = 0;
     this.maxSpeed = 300;
-    this.accelerationPerSec = 400;
+    this.accelerationPerSec = 750;
     this.targetDir = 0;
-    this.slowdownPerSec = 0.99;
+    this.origSlowdownPerSec = 0.95;
+    this.slowdownPerSec = this.origSlowdownPerSec;
 
     this.lastUpdateMs = Date.now();
     this.randSteer = 0;
-    this.randSteerChangePerSec = 30;
+    this.randSteerChangePerSec = 50;
     this.randSteerMax = 80;
 
     this.domElement = createElement(
@@ -62,6 +65,8 @@ class Pacman {
     //  TO-DO add pacman cherry in top right, which on hover spawns pacman through a zoom in fade animation
     const style = this.domElement.style;
 
+    this.speedX = 0;
+    this.speedY = 0;
     style.color = this.colorHEX;
     style.position = "absolute";
     style.transform = "translate(-50%, -50%)";
@@ -80,27 +85,42 @@ class Pacman {
   }
   update() {
     const now = Date.now();
-    const timeDeltaSec = (now - this.lastUpdateMs) / 1000;
+    if (this.deactivated) {
+      this.domElement.classList.add("hidden");
+    } else {
+      const timeDeltaSec = (now - this.lastUpdateMs) / 1000;
 
-    //console.log(
-    //   "updating Pacman",
-    //   this.element.style.top,
-    //   this.element.style.left
-    // );
+      //console.log(
+      //   "updating Pacman",
+      //   this.element.style.top,
+      //   this.element.style.left
+      // );
 
-    this.setTargetDir(timeDeltaSec);
-    this.applyAcceleration(timeDeltaSec);
-    this.updatePos(timeDeltaSec);
-
+      this.setTargetDir(timeDeltaSec);
+      this.applyAcceleration(timeDeltaSec);
+      this.updatePos(timeDeltaSec);
+    }
     this.lastUpdateMs = now;
   }
 
   clicked() {
-    this.accelerationPerSec = 0;
-    this.slowdownPerSec = 0.18;
-    this.appliedClasses = ["nothing"];
+    // this.accelerationPerSec = 0;
+    this.slowdownPerSec = 0.3;
     // Add hit class
     this.domElement.classList.add("hit");
+    setTimeout(() => (this.deactivated = true), 1000);
+  }
+
+  repair() {
+    this.slowdownPerSec = 0.1;
+    this.domElement.classList.remove("hidden");
+    this.domElement.classList.remove("hit");
+    this.deactivated = false;
+    this.speedX = 0;
+    this.speedY = 0;
+    setTimeout(this.moveTo(50, 50), 500);
+
+    setTimeout((this.slowdownPerSec = this.origSlowdownPerSec), 1000);
   }
 
   setTargetDir(timeDeltaSec) {
@@ -257,7 +277,6 @@ function onCollision(pacman, element) {
   const key = `data-collided-with-${pacman.id || pacman.name || Math.random()}`;
 
   element.setAttribute(key, "1");
-  console.log("Collision:", pacman, element);
   // Example action:
   const appliedClass = pacman.appliedClasses[0];
   element.classList.add(appliedClass);
