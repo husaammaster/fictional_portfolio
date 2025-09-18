@@ -5,6 +5,7 @@ import { createElement } from "./dom_utils.js";
 import { getRndInteger, shuffle, COLORS } from "./design.js";
 import { elHeader, elMain, scrollSectionWrapper } from "./scrollSections.js";
 import globData from "./globData.js";
+import { createPacMan } from "./scaryPacMan.js";
 
 export function init() {
   console.log("Starting the init");
@@ -46,6 +47,7 @@ export function init() {
   });
 
   replaceRightMouse();
+  renderPacmanSpawner();
 }
 
 function generateChapContent(contentType, elementsObject) {
@@ -350,8 +352,8 @@ function generateLogoMarkdownFlex(elementsObject) {
 }
 
 function renderRightMouseWRepairMenu(evnt, elMenuUL) {
-  console.log("rendering right mouse menu");
-  console.log(elMenuUL);
+  // console.log("rendering right mouse menu");
+  // console.log(elMenuUL);
 
   elMenuUL.classList.remove("hidden");
   elMenuUL.style.top = evnt.pageY + "px";
@@ -362,15 +364,18 @@ function renderRightMouseWRepairMenu(evnt, elMenuUL) {
   for (const elPM of elPacmen) {
     if (elPM.PMObject.deactivated) {
       console.log("rendered one PM Menu repair item");
-
+      console.log(elPM.PMObject);
       const elPacmanLI = createElement(
         "li",
         ["text", "repair-pacman", "navButton"],
         "repair " + elPM.PMObject.name,
         elMenuUL
       );
+      console.log(elPacmanLI);
+
       elPacmanLI.addEventListener("click", (evnt) => {
         elPM.PMObject.repair();
+        console.log(elPM.PMObject);
       });
     }
   }
@@ -403,13 +408,14 @@ function replaceRightMouse() {
 }
 
 function renderPacmanSpawner() {
-  const elPMSpawner = createElement(
+  const elPMSpawnerImg = createElement(
     "img",
     ["pacman-spawner"],
     "",
     elHeader,
     "pacman-spawner"
   );
+  elPMSpawnerImg.src = "./imgs/pacman_rocket.jpg";
 
-  elPMSpawner.addEventListener("clicked", (evnt) => {});
+  elPMSpawnerImg.addEventListener("click", createPacMan);
 }

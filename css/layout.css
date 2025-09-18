@@ -222,7 +222,7 @@ h3 {
 
 .shake {
   /*display: inline-block;  or block as needed */
-  animation: shake 2.8s ease-in;
+  animation: shake 2s ease-in;
   /* autoplay once — remove 'forwards' if you want it to return to original instantly */
   animation-iteration-count: 1;
   animation-fill-mode: both;
@@ -238,6 +238,9 @@ h3 {
 }
 .rot5 {
   transform: rotate(5deg) !important;
+}
+.rot1 {
+  transform: rotate(1deg) !important;
 }
 .rot90 {
   transform: rotate(90deg) !important;
@@ -256,4 +259,62 @@ h3 {
   border-radius: 15px;
   box-shadow: 0 0 15px 1px black;
   z-index: 7;
+}
+
+@keyframes pacman-shake {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+  1.666% {
+    transform: translateX(-3px) rotate(-2deg);
+  } /* 0.2s */
+  2.333% {
+    transform: translateX(3px) rotate(2deg);
+  } /* 0.4s */
+  3% {
+    transform: translateX(-6px) rotate(-4deg);
+  } /* 0.6s end of shake */
+  5% {
+    transform: translateX(6px) rotate(4deg);
+  }
+  8% {
+    transform: translateX(-3px) rotate(-2deg);
+  }
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+  10% {
+    transform: translateX(3px) rotate(2deg);
+  }
+  11.666% {
+    transform: translateX(-3px) rotate(-2deg);
+  } /* 0.2s */
+  12.333% {
+    transform: translateX(3px) rotate(2deg);
+  } /* 0.4s */
+  13% {
+    transform: translateX(-6px) rotate(-4deg);
+  } /* 0.6s end of shake */
+  15% {
+    transform: translateX(6px) rotate(4deg);
+  }
+  18% {
+    transform: translateX(-3px) rotate(-2deg);
+  }
+  20% {
+    transform: translateX(3px) rotate(2deg);
+  }
+  30% {
+    transform: translateX(0) rotate(0deg);
+  }
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+.pacman-spawner {
+  animation: pacman-shake 5000ms ease-in-out 7s infinite;
+  height: 30%;
+  width: 30%;
+  cursor: pointer;
 }

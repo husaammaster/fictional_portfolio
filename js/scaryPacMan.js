@@ -23,15 +23,15 @@ class Pacman {
     this.lookDir = 45;
     this.currSpeed = 0;
     this.maxSpeed = 300;
-    this.accelerationPerSec = 750;
+    this.accelerationPerSec = 950;
     this.targetDir = 0;
     this.origSlowdownPerSec = 0.95;
     this.slowdownPerSec = this.origSlowdownPerSec;
 
     this.lastUpdateMs = Date.now();
     this.randSteer = 0;
-    this.randSteerChangePerSec = 50;
-    this.randSteerMax = 80;
+    this.randSteerChangePerSec = 60;
+    this.randSteerMax = 84;
 
     this.domElement = createElement(
       "div",
@@ -220,10 +220,10 @@ class Pacman {
 }
 
 export function createPacMan() {
-  const PM1 = new Pacman("Orange Lighter", "#f3b918ff", ["contrast"], 144);
-  const PM2 = new Pacman("Blue Shaker", "#18ecf3ff", ["shake"], 144);
-  const PM3 = new Pacman("Red Shaker", "#f3189fff", ["shake"], 144);
-  const PM4 = new Pacman("Black Darkness", "#000000ff", ["dark"], 144);
+  const PM1 = new Pacman("Orange Lighter", "#f3b918ff", ["contrast"], 60);
+  const PM2 = new Pacman("Blue Shaker", "#18ecf3ff", ["shake"], 60);
+  const PM3 = new Pacman("Red Rotator", "#f3189fff", ["rot1"], 60);
+  const PM4 = new Pacman("Black Darkness", "#000000ff", ["dark"], 60);
 
   setTimeout(() => handleCollisions([PM1, PM2, PM3, PM4]), 1000);
 }
@@ -256,7 +256,7 @@ function handleCollisions(PacMen) {
         }
       }
     }
-  }, 100);
+  }, 10);
 
   // Optional: return a function to stop checking
   // return () => clearInterval(interval);

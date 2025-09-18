@@ -98,7 +98,7 @@
     transform: translateX(0);
   }
   10% {
-    transform: translateX(-8px);
+    transform: translateX(-1px);
   }
   20% {
     transform: translateX(8px);
@@ -109,11 +109,17 @@
   40% {
     transform: translateX(6px);
   }
-  50% {
-    transform: translateX(-4px);
-  }
-  60% {
+  45% {
     transform: translateX(4px);
+  }
+  48% {
+    transform: translateX(0px);
+  }
+  52% {
+    transform: translateX(0px);
+  }
+  55% {
+    transform: translateX(-4px);
   }
   70% {
     transform: translateX(-2px);
