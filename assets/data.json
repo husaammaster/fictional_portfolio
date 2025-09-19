@@ -10,6 +10,16 @@
           "proj": "University & RoboSense ML"
         },
         {
+          "name": "Tiger",
+          "value": 90,
+          "proj": "University & RoboSense ML"
+        },
+        {
+          "name": "Schlange",
+          "value": 90,
+          "proj": "University & RoboSense ML"
+        },
+        {
           "name": "C++",
           "value": 80,
           "proj": "University systems courses"
