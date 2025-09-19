@@ -103,7 +103,7 @@ h3 {
 
 .main {
   width: 85%;
-  margin: 150px auto;
+  margin: 250px auto;
   color: #444;
   display: flex;
   flex-wrap: wrap;
@@ -112,7 +112,7 @@ h3 {
 }
 
 .chapter {
-  scroll-margin-top: 150px;
+  scroll-margin-top: 250px;
   box-shadow: 0 0 20px 1px #eee;
   padding: 20px;
   border: 1px lightgray dotted;
