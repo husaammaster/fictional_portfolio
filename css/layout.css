@@ -72,9 +72,10 @@ h3 {
   background-color: white;
   position: fixed;
   width: 100vw;
-  padding: 5px 10vw;
+  padding: 8px 5vw;
   top: 0;
   display: flex;
+  gap: 16px;
   justify-content: space-between;
   align-items: center;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
@@ -86,15 +87,27 @@ h3 {
 
 .navbar {
   padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
 }
 
 .title {
-  word-spacing: 5px;
+  word-spacing: 3px;
+  font-size: 1.05rem;
+  line-height: 1.35;
+  max-width: 42%;
+}
+.navbar {
+  flex: 1 1 auto;
+  justify-content: flex-end;
 }
 .navButton {
-  padding: 7px 15px;
-  border-radius: 20px;
-  margin: 6px;
+  padding: 5px 11px;
+  font-size: 0.82rem;
+  border-radius: 16px;
+  margin: 0;
   border: 1px dotted #f0f0f0;
   background-color: #f7f7f7;
   box-shadow: 0 0 20px 1px #f7f7f7;
@@ -103,7 +116,7 @@ h3 {
 
 .main {
   width: 85%;
-  margin: 250px auto;
+  margin: 130px auto 80px;
   color: #444;
   display: flex;
   flex-wrap: wrap;
@@ -112,7 +125,7 @@ h3 {
 }
 
 .chapter {
-  scroll-margin-top: 250px;
+  scroll-margin-top: 130px;
   box-shadow: 0 0 20px 1px #eee;
   padding: 20px;
   border: 1px lightgray dotted;
@@ -314,7 +327,41 @@ h3 {
 
 .pacman-spawner {
   animation: pacman-shake 5000ms ease-in-out 7s infinite;
-  height: 30%;
-  width: 30%;
+  height: 64px;
+  width: 64px;
+  object-fit: contain;
+  border-radius: 10px;
+  flex: none;
   cursor: pointer;
+}
+
+.repo-link {
+  white-space: nowrap;
+}
+
+/* Narrow screens: let the header wrap so the nav drops below the title
+   instead of colliding with the title / GitHub link. */
+@media (max-width: 640px) {
+  .header {
+    flex-wrap: wrap;
+    row-gap: 8px;
+  }
+  /* taller wrapped header needs more clearance so the first chapter isn't covered */
+  .main {
+    margin-top: 180px;
+  }
+  .title {
+    max-width: 100%;
+    flex: 1 1 100%;
+    font-size: 1rem;
+  }
+  .navbar {
+    flex: 1 1 100%;
+    justify-content: flex-start;
+  }
+  .pacman-spawner {
+    position: absolute;
+    top: 8px;
+    right: 5vw;
+  }
 }

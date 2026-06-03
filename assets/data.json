@@ -11,25 +11,25 @@
         },
 
         {
-          "name": "Lisa",
-          "value": 90,
-          "proj": "University & RoboSense ML"
+          "name": "PyTorch",
+          "value": 88,
+          "proj": "Master's thesis & RoboSense ML"
         },
 
         {
-          "name": "Tom",
-          "value": 90,
-          "proj": "University & RoboSense ML"
+          "name": "JavaScript",
+          "value": 80,
+          "proj": "This portfolio & web demos"
         },
         {
-          "name": "Tiger",
-          "value": 90,
-          "proj": "University & RoboSense ML"
+          "name": "Linux & Bash",
+          "value": 76,
+          "proj": "Dev environments & deployments"
         },
         {
-          "name": "Schlange",
-          "value": 90,
-          "proj": "University & RoboSense ML"
+          "name": "SQL",
+          "value": 70,
+          "proj": "Analytics dashboards"
         },
         {
           "name": "C++",
